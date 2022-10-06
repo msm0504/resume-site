@@ -1,4 +1,68 @@
-import { Employment } from '../types';
+import { Education, Employment } from '../types';
+
+export const EDUCATION: Education[] = [
+	{
+		schoolName: 'The College of New Jersey',
+		city: 'Ewing',
+		state: 'New Jersey',
+		gradDate: 'December 2011',
+		highlights: [
+			'Bachelor of Science in Computer Science with a Minor in Philosophy',
+			'Magna Cum Laude, Merit Scholar',
+			'GPA: 3.85 / 4.0, Dean’s List (all semesters)',
+		],
+	},
+];
+
+export const INTERNSHIPS: Employment[] = [
+	{
+		companyName: 'AT&T',
+		city: 'Middletown',
+		state: 'New Jersey',
+		start: 'June 2010',
+		end: 'August 2011',
+		titles: [
+			{ title: 'Student Intern', start: 'June 2011', end: 'August 2011' },
+			{ title: 'Student Intern', start: 'June 2010', end: 'August 2010' },
+		],
+		projects: [
+			{
+				highlights: [
+					'Converted business requirements into Tier 1 system requirements.',
+					'Wrote documents outlining high level requirements for each system impacted in projects.',
+					'Participated in regular meetings with both business clients and engineers who would later write more detailed requirements.',
+				],
+			},
+		],
+	},
+	{
+		companyName: 'Marathon Data Systems, LLC',
+		city: 'Wall',
+		state: 'New Jersey',
+		start: 'May 2009',
+		end: 'August 2009',
+		titles: 'Student Intern',
+		projects: [
+			{
+				highlights: [
+					'Application programmer for a web-based system to handle accounting and appointment scheduling.',
+					'Created custom website to handle customer sign-ups.',
+					'Made customizations to existing forms (e.g. service orders, invoices, inspection reports) and added new forms to system.',
+					'Added searching and sorting criteria to reports.',
+				],
+				techsUsed: [
+					'HTML',
+					'CSS',
+					'JavaScript',
+					'VB Script',
+					'Visual Basic',
+					'ASP',
+					'Microsoft SQL Server',
+				],
+			},
+		],
+	},
+];
 
 export const EMPLOYMENT_HISTORY: Employment[] = [
 	{

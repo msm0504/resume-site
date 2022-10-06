@@ -9,6 +9,7 @@ import { Employment, WithId } from '../../../types';
 
 type EmployHistoryDesktopProps = {
 	history: WithId<Employment>[];
+	bgColor: string;
 	fnFormatLabel: (entry: WithId<Employment>) => string | JSX.Element;
 };
 
@@ -20,13 +21,17 @@ const formatNavItem = (id: string, label: string | JSX.Element) => (
 	</Nav.Item>
 );
 
-const formatTabPane = (entry: WithId<Employment>) => (
+const formatTabPane = (entry: WithId<Employment>, bgColor: string) => (
 	<Tab.Pane key={entry.id} eventKey={entry.id}>
-		<EmployHistoryDetails employment={entry} />
+		<EmployHistoryDetails employment={entry} bgColor={bgColor} />
 	</Tab.Pane>
 );
 
-const EmployHistoryDesktop: React.FC<EmployHistoryDesktopProps> = ({ history, fnFormatLabel }) => {
+const EmployHistoryDesktop: React.FC<EmployHistoryDesktopProps> = ({
+	history,
+	bgColor,
+	fnFormatLabel,
+}) => {
 	const [tabs, setTabs] = useState<JSX.Element[]>([]);
 	const [details, setDetails] = useState<JSX.Element[]>([]);
 
@@ -35,7 +40,7 @@ const EmployHistoryDesktop: React.FC<EmployHistoryDesktopProps> = ({ history, fn
 		const newDetails: JSX.Element[] = [];
 		history.forEach(entry => {
 			newTabs.push(formatNavItem(entry.id, fnFormatLabel(entry)));
-			newDetails.push(formatTabPane(entry));
+			newDetails.push(formatTabPane(entry, bgColor));
 		});
 		setTabs(newTabs);
 		setDetails(newDetails);

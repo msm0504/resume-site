@@ -6,6 +6,7 @@ import { Employment, Project, TitleDuration } from '../../../types';
 
 type EmployHistoryDetailsProps = {
 	employment: Employment;
+	bgColor: string;
 };
 
 const formatDuration = (title: string, start: string, end: string) => (
@@ -31,13 +32,13 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 	);
 
 const formatProject = (project: Project) => (
-	<div className='text-white'>
+	<div>
 		<div className='h6 fw-semibold text-info'>Responsiblities</div>
 		<Notes notes={project.highlights} />
 		{project.techsUsed && (
 			<>
 				<div className='h6 fw-semibold text-info'>Technologies Used</div>
-				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0'>
+				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0 text-white'>
 					{project.techsUsed.map((techUsed, index) => (
 						<li className='px-2 font-monospace' key={index}>
 							{techUsed}
@@ -49,15 +50,15 @@ const formatProject = (project: Project) => (
 	</div>
 );
 
-const formatProjects = (projects: Project[]) =>
+const formatProjects = (projects: Project[], bgColor: string) =>
 	!projects.length ? null : projects.length > 1 ? (
 		<Accordion defaultActiveKey={projects[0].name} flush>
 			{projects.map(project => (
 				<Accordion.Item key={project.name} eventKey={project.name ?? ''}>
-					<Accordion.Button className='bg-secondary d-block px-0'>
+					<Accordion.Button className={`bg-${bgColor} d-block px-0`}>
 						{formatDuration(project.name ?? '', project.start ?? '', project.end ?? '')}
 					</Accordion.Button>
-					<Accordion.Body className='bg-secondary'>{formatProject(project)}</Accordion.Body>
+					<Accordion.Body className={`bg-${bgColor}`}>{formatProject(project)}</Accordion.Body>
 				</Accordion.Item>
 			))}
 		</Accordion>
@@ -65,10 +66,10 @@ const formatProjects = (projects: Project[]) =>
 		<>{formatProject(projects[0])}</>
 	);
 
-const EmployHistoryDetails: React.FC<EmployHistoryDetailsProps> = ({ employment }) => (
-	<article style={{ minHeight: '500px' }} className='p-3 bg-secondary'>
+const EmployHistoryDetails: React.FC<EmployHistoryDetailsProps> = ({ employment, bgColor }) => (
+	<article style={{ minHeight: '500px' }} className={`p-3 bg-${bgColor}`}>
 		<div className='mb-4'>{formatTitles(employment.titles)}</div>
-		{formatProjects(employment.projects)}
+		{formatProjects(employment.projects, bgColor)}
 	</article>
 );
 

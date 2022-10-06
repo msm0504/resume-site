@@ -6,10 +6,15 @@ import { Employment, WithId } from '../../../types';
 
 type EmployHistoryMobileProps = {
 	history: WithId<Employment>[];
+	bgColor: string;
 	fnFormatLabel: (entry: WithId<Employment>) => string | JSX.Element;
 };
 
-const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({ history, fnFormatLabel }) => {
+const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({
+	history,
+	bgColor,
+	fnFormatLabel,
+}) => {
 	const [active, setActive] = useState<string>(history[0]?.id);
 
 	return (
@@ -21,12 +26,12 @@ const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({ history, fnFo
 			{history.map(entry => (
 				<Accordion.Item key={entry.id} eventKey={entry.id}>
 					<Accordion.Button
-						className={`bg-${entry.id === active ? 'primary' : 'secondary'} text-white`}
+						className={`bg-${entry.id === active ? 'primary' : bgColor} text-white`}
 					>
 						{fnFormatLabel(entry)}
 					</Accordion.Button>
 					<Accordion.Body className='p-0'>
-						<EmployHistoryDetails employment={entry} />
+						<EmployHistoryDetails employment={entry} bgColor={bgColor} />
 					</Accordion.Body>
 				</Accordion.Item>
 			))}

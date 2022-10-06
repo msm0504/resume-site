@@ -5,11 +5,11 @@ import { Employment } from '../types';
 import EmployHistory from '../client/components/employ-history';
 import { EMPLOYMENT_HISTORY } from '../data/resume-data';
 
-type ResumeProps = {
+type ProfExperProps = {
 	employHistory: Employment[];
 };
 
-const Resume: NextPage<ResumeProps> = ({ employHistory }) => (
+const ProfExper: NextPage<ProfExperProps> = ({ employHistory }) => (
 	<div>
 		<Head>
 			<title>Create Next App</title>
@@ -17,11 +17,20 @@ const Resume: NextPage<ResumeProps> = ({ employHistory }) => (
 			<link rel='icon' href='/favicon.ico' />
 		</Head>
 
-		<EmployHistory history={employHistory} />
+		<div className='bg-secondary'>
+			<section
+				id='prof-experience'
+				style={{ maxWidth: '1200px' }}
+				className='mx-auto my-0 px-3 py-5'
+			>
+				<h2 className='text-primary mb-3'>Professional Experience</h2>
+				<EmployHistory history={employHistory} bgColor='secondary' />
+			</section>
+		</div>
 	</div>
 );
 
-export default Resume;
+export default ProfExper;
 
 export const getStaticProps: GetStaticProps = () => ({
 	props: {

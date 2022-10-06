@@ -9,6 +9,7 @@ import { Employment, WithId } from '../../../types';
 
 type EmployHistoryProps = {
 	history: Employment[];
+	bgColor?: string;
 };
 
 const formatEntryLabel = (entry: WithId<Employment>) => (
@@ -23,7 +24,7 @@ const formatEntryLabel = (entry: WithId<Employment>) => (
 	</div>
 );
 
-const EmployHistory: React.FC<EmployHistoryProps> = ({ history }) => {
+const EmployHistory: React.FC<EmployHistoryProps> = ({ history, bgColor = 'secondary' }) => {
 	const [withIds, setWithIds] = useState<WithId<Employment>[]>([]);
 	const [width] = useMediaQuery();
 
@@ -35,17 +36,7 @@ const EmployHistory: React.FC<EmployHistoryProps> = ({ history }) => {
 
 	const View = width >= LG_MIN_WIDTH ? DesktopView : MobileView;
 
-	return (
-		<div className='bg-secondary'>
-			<section
-				id='prof-experience'
-				style={{ maxWidth: '1200px' }}
-				className='mx-auto my-0 px-3 py-5'
-			>
-				<View history={withIds} fnFormatLabel={formatEntryLabel} />
-			</section>
-		</div>
-	);
+	return <View history={withIds} bgColor={bgColor} fnFormatLabel={formatEntryLabel} />;
 };
 
 export default EmployHistory;
