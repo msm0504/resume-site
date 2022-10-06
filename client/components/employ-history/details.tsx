@@ -33,11 +33,11 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 
 const formatProject = (project: Project) => (
 	<div>
-		<div className='h6 fw-semibold text-info'>Responsiblities</div>
+		<div className='h6 fw-semibold text-warning'>Responsiblities</div>
 		<Notes notes={project.highlights} />
 		{project.techsUsed && (
 			<>
-				<div className='h6 fw-semibold text-info'>Technologies Used</div>
+				<div className='h6 fw-semibold text-warning'>Technologies Used</div>
 				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0 text-white'>
 					{project.techsUsed.map((techUsed, index) => (
 						<li className='px-2 font-monospace' key={index}>
@@ -67,7 +67,7 @@ const formatProjects = (projects: Project[], bgColor: string) =>
 	);
 
 const EmployHistoryDetails: React.FC<EmployHistoryDetailsProps> = ({ employment, bgColor }) => (
-	<article style={{ minHeight: '500px' }} className={`p-3 bg-${bgColor}`}>
+	<article style={{ minHeight: '400px' }} className={`p-3 bg-${bgColor}`}>
 		<div className='mb-4'>{formatTitles(employment.titles)}</div>
 		{formatProjects(employment.projects, bgColor)}
 	</article>
