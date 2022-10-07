@@ -15,7 +15,7 @@ type EmployHistoryDesktopProps = {
 
 const formatNavItem = (id: string, label: string | JSX.Element) => (
 	<Nav.Item key={id}>
-		<Nav.Link className='rounded-0 text-white' eventKey={id}>
+		<Nav.Link className='rounded-0 text-light' eventKey={id}>
 			{label}
 		</Nav.Link>
 	</Nav.Item>
@@ -50,9 +50,7 @@ const EmployHistoryDesktop: React.FC<EmployHistoryDesktopProps> = ({
 		<Tab.Container defaultActiveKey={history[0].id}>
 			<Row>
 				<Col className='pe-0' sm={3}>
-					<Nav className='flex-column' variant='pills'>
-						{tabs}
-					</Nav>
+					<Nav className='flex-column'>{tabs}</Nav>
 				</Col>
 				<Col className='ps-0' sm={9}>
 					<Tab.Content>{details}</Tab.Content>

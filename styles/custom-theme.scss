@@ -1,7 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lato&display=swap');
+/*
+$primary: #7f103b;
+$secondary: #8091ad;
+$info: #a0522d;
+$dark: #431d52;
+$light: #fffff0;
+
 $primary: #83af9b;
 $secondary: #1a454a;
 $info: #94dae3;
 $warning: #e394bd;
 $danger: #7a3d3f;
+*/
+$primary: #94dae3;
+$secondary: #431d52;
+$info: #e394bd;
+$danger: #7f103b;
+$light: #fff;
+$dark: #000;
+
+$font-family-sans-serif: 'Lato', sans-serif;
+$headings-font-family: 'Playfair Display', serif;
 
 @import '../node_modules/bootstrap/scss/bootstrap';

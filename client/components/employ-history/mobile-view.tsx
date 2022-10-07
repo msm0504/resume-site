@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import EmployHistoryDetails from './details';
@@ -14,29 +13,19 @@ const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({
 	history,
 	bgColor,
 	fnFormatLabel,
-}) => {
-	const [active, setActive] = useState<string>(history[0]?.id);
-
-	return (
-		<Accordion
-			defaultActiveKey={history[0].id}
-			onSelect={eventKey => setActive(String(eventKey))}
-			flush
-		>
-			{history.map(entry => (
-				<Accordion.Item key={entry.id} eventKey={entry.id}>
-					<Accordion.Button
-						className={`bg-${entry.id === active ? 'primary' : bgColor} text-white`}
-					>
-						{fnFormatLabel(entry)}
-					</Accordion.Button>
-					<Accordion.Body className='p-0'>
-						<EmployHistoryDetails employment={entry} bgColor={bgColor} />
-					</Accordion.Body>
-				</Accordion.Item>
-			))}
-		</Accordion>
-	);
-};
+}) => (
+	<Accordion defaultActiveKey={history[0].id} flush>
+		{history.map(entry => (
+			<Accordion.Item key={entry.id} eventKey={entry.id}>
+				<Accordion.Button className={`bg-${bgColor} text-light`}>
+					{fnFormatLabel(entry)}
+				</Accordion.Button>
+				<Accordion.Body className='p-0'>
+					<EmployHistoryDetails employment={entry} bgColor={bgColor} />
+				</Accordion.Body>
+			</Accordion.Item>
+		))}
+	</Accordion>
+);
 
 export default EmployHistoryMobile;

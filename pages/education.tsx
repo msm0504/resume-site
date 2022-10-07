@@ -27,19 +27,19 @@ const EducationSection: NextPage<EducationProps> = ({ education, internships }) 
 					<>
 						<div className='d-flex justify-content-between' key={school.schoolName}>
 							<div className='d-block'>
-								<Card.Title className='text-warning'>{school.schoolName}</Card.Title>
-								<Card.Subtitle className='text-white'>
+								<Card.Title className='text-primary'>{school.schoolName}</Card.Title>
+								<Card.Subtitle className='text-light'>
 									{school.city}, {school.state}
 								</Card.Subtitle>
 							</div>
-							<div className='text-white'>Graduated {school.gradDate}</div>
+							<div className='text-light'>Graduated {school.gradDate}</div>
 						</div>
 						<div style={{ maxWidth: '800px' }} className='mx-auto'>
 							<Notes notes={school.highlights} />
 						</div>
 					</>
 				))}
-				<h3 className='h5 text-warning'>Internships</h3>
+				<h3 className='h5 text-primary'>Internships</h3>
 				<EmployHistory history={internships} bgColor='danger' />
 			</section>
 		</div>

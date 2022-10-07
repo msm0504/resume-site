@@ -10,9 +10,9 @@ type EmployHistoryDetailsProps = {
 };
 
 const formatDuration = (title: string, start: string, end: string) => (
-	<div className='d-flex flex-wrap justify-content-between'>
-		<div className='h6 fw-semibold text-warning'>{title}</div>
-		<div className='text-white'>
+	<div className='d-flex flex-wrap justify-content-between text-light'>
+		<div className='h6 fw-semibold'>{title}</div>
+		<div>
 			{start} - {end}
 		</div>
 	</div>
@@ -28,19 +28,19 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 			))}
 		</>
 	) : (
-		<div className='h6 fw-semibold text-warning'>{titles}</div>
+		<div className='h6 fw-semibold text-light'>{titles}</div>
 	);
 
 const formatProject = (project: Project) => (
 	<div>
-		<div className='h6 fw-semibold text-warning'>Responsiblities</div>
+		<div className='h6 fw-semibold text-info'>Responsiblities</div>
 		<Notes notes={project.highlights} />
 		{project.techsUsed && (
 			<>
-				<div className='h6 fw-semibold text-warning'>Technologies Used</div>
-				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0 text-white'>
+				<div className='h6 fw-semibold text-info'>Technologies Used</div>
+				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0 text-light'>
 					{project.techsUsed.map((techUsed, index) => (
-						<li className='px-2 font-monospace' key={index}>
+						<li className='px-2' key={index}>
 							{techUsed}
 						</li>
 					))}
