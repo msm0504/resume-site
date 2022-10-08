@@ -2,7 +2,8 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import Notes from '../notes';
-import { Employment, Project, TitleDuration } from '../../../types';
+import { Employment, Project, TitleDuration } from '@/types/index';
+import style from '@/styles/employ-details.module.css';
 
 type EmployHistoryDetailsProps = {
 	employment: Employment;
@@ -55,7 +56,7 @@ const formatProjects = (projects: Project[], bgColor: string) =>
 		<Accordion defaultActiveKey={projects[0].name} flush>
 			{projects.map(project => (
 				<Accordion.Item key={project.name} eventKey={project.name ?? ''}>
-					<Accordion.Button className={`bg-${bgColor} d-block px-0`}>
+					<Accordion.Button className={`${style.projectListItem} bg-${bgColor} d-block px-3`}>
 						{formatDuration(project.name ?? '', project.start ?? '', project.end ?? '')}
 					</Accordion.Button>
 					<Accordion.Body className={`bg-${bgColor}`}>{formatProject(project)}</Accordion.Body>

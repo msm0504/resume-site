@@ -1,10 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
-import { Education, Employment } from '../types';
-import { EDUCATION, EMPLOYMENT_HISTORY, INTERNSHIPS } from '../data/resume-data';
-import EducationSection from '../client/sections/education';
-import ExperienceSection from '../client/sections/experience';
+import EducationSection from '@/client/sections/education';
+import ExperienceSection from '@/client/sections/experience';
+import { EDUCATION, EMPLOYMENT_HISTORY, INTERNSHIPS } from '@/data/resume-data';
+import { Education, Employment } from '@/types/index';
 
 type HomeProps = {
 	education: Education[];

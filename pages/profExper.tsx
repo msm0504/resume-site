@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
-import { Employment } from '../types';
-import EmployHistory from '../client/components/employ-history';
-import { EMPLOYMENT_HISTORY } from '../data/resume-data';
+import EmployHistory from '@/client/components/employ-history';
+import { EMPLOYMENT_HISTORY } from '@/data/resume-data';
+import { Employment } from '@/types/index';
 
 type ProfExperProps = {
 	employHistory: Employment[];

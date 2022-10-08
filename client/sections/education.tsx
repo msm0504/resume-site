@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 
 import EmployHistory from '../components/employ-history';
 import Notes from '../components/notes';
-import { Education, Employment } from '../../types';
+import { Education, Employment } from '@/types/index';
 import React from 'react';
 
 type EducationProps = {
@@ -13,7 +13,7 @@ type EducationProps = {
 const EducationSection: React.FC<EducationProps> = ({ education, internships }) => (
 	<div className='bg-danger'>
 		<section id='education' style={{ maxWidth: '1200px' }} className='mx-auto my-0 px-3 py-5'>
-			<h2 className='text-primary fw-bold mb-3'>Education</h2>
+			<h2 className='text-info fw-bold mb-3'>Education</h2>
 			{education.map(school => (
 				<React.Fragment key={school.schoolName}>
 					<div className='d-flex justify-content-between text-light'>

@@ -1,7 +1,8 @@
 import Accordion from 'react-bootstrap/Accordion';
 
 import EmployHistoryDetails from './details';
-import { Employment, WithId } from '../../../types';
+import { Employment, WithId } from '@/types/index';
+import style from '@/styles/employ-mobile.module.css';
 
 type EmployHistoryMobileProps = {
 	history: WithId<Employment>[];
@@ -17,7 +18,7 @@ const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({
 	<Accordion defaultActiveKey={history[0].id} flush>
 		{history.map(entry => (
 			<Accordion.Item key={entry.id} eventKey={entry.id}>
-				<Accordion.Button className={`bg-${bgColor} text-light`}>
+				<Accordion.Button className={`${style.employListItem} bg-${bgColor} text-light`}>
 					{fnFormatLabel(entry)}
 				</Accordion.Button>
 				<Accordion.Body className='p-0'>

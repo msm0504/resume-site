@@ -13,15 +13,6 @@ a {
 	box-sizing: border-box;
 }
 
-.nav-link.active .h5,
-.accordion-button:not(.collapsed) .h5,
-.nav-link.active .h6,
-.accordion-button:not(.collapsed) .h6 {
-	color: var(--bs-primary);
-	text-decoration: underline;
-	text-decoration-color: var(--bs-primary);
-}
-
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
