@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 
 import DesktopView from './desktop-view';
 import MobileView from './mobile-view';
-import useMediaQuery, { LG_MIN_WIDTH } from '../../hooks/use-media-query';
+import useMediaQuery, { LG_MIN_WIDTH } from '@/client/hooks/use-media-query';
 import { Employment, WithId } from '@/types/index';
 
 type EmployHistoryProps = {

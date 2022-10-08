@@ -2,10 +2,10 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import Card from 'react-bootstrap/Card';
 
-import EmployHistory from '../client/components/employ-history';
-import Notes from '../client/components/notes';
-import { EDUCATION, INTERNSHIPS } from '../data/resume-data';
-import { Education, Employment } from '../types/index';
+import EmployHistory from '@/client/components/employ-history';
+import Notes from '@/client/components/notes';
+import { EDUCATION, INTERNSHIPS } from '@/data/resume-data';
+import { Education, Employment } from '@/types/index';
 
 type EducationProps = {
 	education: Education[];
