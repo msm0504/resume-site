@@ -11,15 +11,35 @@ $secondary: #1a454a;
 $info: #94dae3;
 $warning: #e394bd;
 $danger: #7a3d3f;
-*/
-$primary: #94dae3;
+
+$primary: #bd7b9d;
 $secondary: #431d52;
-$info: #e394bd;
+$info: #94dae3;
 $danger: #7f103b;
-$light: #fff;
-$dark: #000;
+$light: #f7f8fa;
+$dark: #171321;
+
+$primary: #e310cb;
+$secondary: #0d314b;
+$info: #86fbfb;
+$danger: #4b0d49;
+$light: #f7f8fa;
+$dark: #171321;
+*/
+// $primary: #b37272;
+$primary: #7e8082;
+$secondary: #003b41;
+$info: #bfbda3;
+// $danger: #403e3f;
+$danger: #401212;
+$light: #f7f8fa;
+$dark: #0d0d0d;
 
 $font-family-sans-serif: 'Lato', sans-serif;
 $headings-font-family: 'Playfair Display', serif;
 
 @import '../node_modules/bootstrap/scss/bootstrap';
+
+.accordion-item {
+	color: inherit;
+}

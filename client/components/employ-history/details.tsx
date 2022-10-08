@@ -29,7 +29,7 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 			))}
 		</>
 	) : (
-		<div className='h6 fw-semibold text-light'>{titles}</div>
+		<div className='h6 fw-semibold'>{titles}</div>
 	);
 
 const formatProject = (project: Project) => (
@@ -39,7 +39,7 @@ const formatProject = (project: Project) => (
 		{project.techsUsed && (
 			<>
 				<div className='h6 fw-semibold text-info'>Technologies Used</div>
-				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0 text-light'>
+				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0'>
 					{project.techsUsed.map((techUsed, index) => (
 						<li className='px-2' key={index}>
 							{techUsed}
@@ -56,7 +56,7 @@ const formatProjects = (projects: Project[], bgColor: string) =>
 		<Accordion defaultActiveKey={projects[0].name} flush>
 			{projects.map(project => (
 				<Accordion.Item key={project.name} eventKey={project.name ?? ''}>
-					<Accordion.Button className={`${style.projectListItem} bg-${bgColor} d-block px-3`}>
+					<Accordion.Button className={`${style.projectListItem} bg-${bgColor} d-block px-1`}>
 						{formatDuration(project.name ?? '', project.start ?? '', project.end ?? '')}
 					</Accordion.Button>
 					<Accordion.Body className={`bg-${bgColor}`}>{formatProject(project)}</Accordion.Body>

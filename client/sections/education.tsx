@@ -16,7 +16,7 @@ const EducationSection: React.FC<EducationProps> = ({ education, internships }) 
 			<h2 className='text-info fw-bold mb-3'>Education</h2>
 			{education.map(school => (
 				<React.Fragment key={school.schoolName}>
-					<div className='d-flex justify-content-between text-light'>
+					<div className='d-flex justify-content-between'>
 						<div className='d-block'>
 							<Card.Title>{school.schoolName}</Card.Title>
 							<Card.Subtitle>
@@ -30,7 +30,7 @@ const EducationSection: React.FC<EducationProps> = ({ education, internships }) 
 					</div>
 				</React.Fragment>
 			))}
-			<h3 className='h5 text-light'>Internships</h3>
+			<h3 className='h5'>Internships</h3>
 			<EmployHistory history={internships} bgColor='danger' />
 		</section>
 	</div>
