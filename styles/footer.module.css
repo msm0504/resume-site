@@ -1,0 +1,9 @@
+footer ul.footerButtons {
+	list-style-type: none;
+	padding: 0;
+	margin: 2rem 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 3rem;
+}

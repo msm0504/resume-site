@@ -1,6 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
+import ContactSection from '@/client/sections/contact';
+import IntroSection from '@/client/sections/intro';
 import EducationSection from '@/client/sections/education';
 import ExperienceSection from '@/client/sections/experience';
 import { EDUCATION, EMPLOYMENT_HISTORY, INTERNSHIPS } from '@/data/resume-data';
@@ -22,8 +24,10 @@ const Home: NextPage<HomeProps> = ({ education, employHistory, internships }) =>
 			</Head>
 
 			<main>
+				<IntroSection />
 				<ExperienceSection employHistory={employHistory} />
 				<EducationSection education={education} internships={internships} />
+				<ContactSection />
 			</main>
 		</div>
 	);

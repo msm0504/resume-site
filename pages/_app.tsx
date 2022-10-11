@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@/styles/custom-theme.scss';
 import '@/styles/globals.css';
 import TopNavbar from '@/client/components/top-navbar';
+import Footer from '@/client/components/footer';
 
 config.autoAddCss = false;
 
@@ -13,6 +14,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 		<>
 			<TopNavbar />
 			<Component {...pageProps} />
+			<Footer />
 		</>
 	);
 };

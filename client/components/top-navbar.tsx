@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
+import { EMAIL_MAILTO, LINKIN_PROFILE, RESUME_URL } from '@/client/constants';
+
 type NavbarLinkProps = {
 	text: string;
 	path: string;
@@ -18,22 +20,17 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({ text, path, scrollTop = false }
 );
 
 const TopNavbar: React.FC = () => (
-	<Navbar bg='dark' variant='dark' expand='md' sticky='top'>
+	<Navbar bg='dark' variant='dark' expand='md'>
 		<Link href='/'>
 			<a className='ms-3 navbar-brand'>Mark Monday</a>
 		</Link>
 		<Nav className='me-auto'>
 			<div className='d-flex justify-content-start'>
-				<a
-					className='nav-link me-2'
-					href='https://www.linkedin.com/in/mark-monday-b4b931186/'
-					target='_blank'
-					rel='noreferrer'
-				>
+				<a className='nav-link me-2' href={LINKIN_PROFILE} target='_blank' rel='noreferrer'>
 					<FontAwesomeIcon icon={faLinkedin} size='xl' />
 					<span className='sr-only'>{'Link to my LinkedIn profile'}</span>
 				</a>
-				<Nav.Link href='mailto:mark.monday0504@gmail.com'>
+				<Nav.Link href={EMAIL_MAILTO}>
 					<FontAwesomeIcon icon={faEnvelope} size='xl' />
 					<span className='sr-only'>{'Link to write me an email'}</span>
 				</Nav.Link>
@@ -45,12 +42,9 @@ const TopNavbar: React.FC = () => (
 				<NavbarLink text='Experience' path='/#prof-experience' />
 				<NavbarLink text='Education' path='/#education' />
 				<NavbarLink text='Projects' path='/projects' />
-				<a
-					className='nav-link'
-					href='https://drive.google.com/file/d/1h3CHYg1s8UVeR68lor8XollnUEDvDq8K/view?usp=sharing'
-					target='_blank'
-					rel='noreferrer'
-				>
+				<NavbarLink text='About' path='/about' />
+				<NavbarLink text='Contact' path='/#contact' />
+				<a className='nav-link' href={RESUME_URL} target='_blank' rel='noreferrer'>
 					Resume (.pdf)
 				</a>
 			</Nav>
