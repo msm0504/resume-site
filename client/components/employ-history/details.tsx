@@ -10,14 +10,23 @@ type EmployHistoryDetailsProps = {
 	bgColor: string;
 };
 
-const formatDuration = (title: string, start: string, end: string) => (
-	<div className='d-flex flex-wrap justify-content-between text-light'>
-		<div className='h6 fw-semibold'>{title}</div>
-		<div>
-			{start} - {end}
+const HEADING_CLASSES = 'h6 fw-semibold';
+
+const formatDuration = (title: string, start: string, end: string, isHeading = false) => {
+	return (
+		<div className='d-flex flex-wrap justify-content-between text-light'>
+			{isHeading ? (
+				<h4 className={HEADING_CLASSES}>{title}</h4>
+			) : (
+				<div className={HEADING_CLASSES}>{title}</div>
+			)}
+
+			<div>
+				{start} - {end}
+			</div>
 		</div>
-	</div>
-);
+	);
+};
 
 const formatTitles = (titles: string | TitleDuration[]) =>
 	Array.isArray(titles) ? (
@@ -29,16 +38,16 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 			))}
 		</>
 	) : (
-		<div className='h6 fw-semibold'>{titles}</div>
+		<div className={HEADING_CLASSES}>{titles}</div>
 	);
 
 const formatProject = (project: Project) => (
 	<div>
-		<div className='h6 fw-semibold text-info'>Responsiblities</div>
+		<div className={`${HEADING_CLASSES} text-info`}>Responsiblities</div>
 		<Notes notes={project.highlights} />
 		{project.techsUsed && (
 			<>
-				<div className='h6 fw-semibold text-info'>Technologies Used</div>
+				<div className={`${HEADING_CLASSES} text-info`}>Technologies Used</div>
 				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0'>
 					{project.techsUsed.map((techUsed, index) => (
 						<li className='px-2' key={index}>
@@ -52,19 +61,19 @@ const formatProject = (project: Project) => (
 );
 
 const formatProjects = (projects: Project[], bgColor: string) =>
-	!projects.length ? null : projects.length > 1 ? (
+	!projects.length ? null : projects.length === 1 ? (
+		<>{formatProject(projects[0])}</>
+	) : (
 		<Accordion defaultActiveKey={projects[0].name} flush>
 			{projects.map(project => (
 				<Accordion.Item key={project.name} eventKey={project.name ?? ''}>
 					<Accordion.Button className={`${style.projectListItem} bg-${bgColor} d-block px-1`}>
-						{formatDuration(project.name ?? '', project.start ?? '', project.end ?? '')}
+						{formatDuration(project.name ?? '', project.start ?? '', project.end ?? '', true)}
 					</Accordion.Button>
 					<Accordion.Body className={`bg-${bgColor}`}>{formatProject(project)}</Accordion.Body>
 				</Accordion.Item>
 			))}
 		</Accordion>
-	) : (
-		<>{formatProject(projects[0])}</>
 	);
 
 const EmployHistoryDetails: React.FC<EmployHistoryDetailsProps> = ({ employment, bgColor }) => (

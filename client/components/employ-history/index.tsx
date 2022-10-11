@@ -14,7 +14,9 @@ type EmployHistoryProps = {
 
 const formatEntryLabel = (entry: WithId<Employment>) => (
 	<div className='d-block'>
-		<Card.Title className='fw-bold'>{entry.companyName}</Card.Title>
+		<h3 className='m-0 p-0'>
+			<Card.Title className='fw-bold'>{entry.companyName}</Card.Title>
+		</h3>
 		<Card.Subtitle>
 			{entry.city}, {entry.state}
 		</Card.Subtitle>
