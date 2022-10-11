@@ -1,10 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
-import TopNavbar from '@/client/components/top-navbar';
 import EducationSection from '@/client/sections/education';
 import ExperienceSection from '@/client/sections/experience';
-import IntroSection from '@/client/sections/intro';
 import { EDUCATION, EMPLOYMENT_HISTORY, INTERNSHIPS } from '@/data/resume-data';
 import { Education, Employment } from '@/types/index';
 
@@ -24,8 +22,6 @@ const Home: NextPage<HomeProps> = ({ education, employHistory, internships }) =>
 			</Head>
 
 			<main>
-				<TopNavbar />
-				{IntroSection}
 				<ExperienceSection employHistory={employHistory} />
 				<EducationSection education={education} internships={internships} />
 			</main>
