@@ -1,8 +1,8 @@
 import EmployHistory from '../components/employ-history';
-import { Employment } from '@/types/index';
+import { Employment, WithId } from '@/types/index';
 
 type ExperienceProps = {
-	employHistory: Employment[];
+	employHistory: WithId<Employment>[];
 };
 
 const ExperienceSection: React.FC<ExperienceProps> = ({ employHistory }) => (

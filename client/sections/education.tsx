@@ -1,13 +1,13 @@
+import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 import EmployHistory from '../components/employ-history';
 import Notes from '../components/notes';
-import { Education, Employment } from '@/types/index';
-import React from 'react';
+import { Education, Employment, WithId } from '@/types/index';
 
 type EducationProps = {
 	education: Education[];
-	internships: Employment[];
+	internships: WithId<Employment>[];
 };
 
 const EducationSection: React.FC<EducationProps> = ({ education, internships }) => (

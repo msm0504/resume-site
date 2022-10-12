@@ -2,13 +2,12 @@ export type WithId<T> = T & {
 	id: string;
 };
 
-export type Project = {
+export type Role = {
 	highlights: string[];
 	techsUsed?: string[];
 	name?: string;
 	start?: string;
 	end?: string;
-	apisUsed?: string[];
 };
 
 export type TitleDuration = {
@@ -24,7 +23,7 @@ export type Employment = {
 	start: string;
 	end: string;
 	titles: string | TitleDuration[];
-	projects: Project[];
+	roles: Role[];
 };
 
 export type Education = {
@@ -33,4 +32,19 @@ export type Education = {
 	state: string;
 	gradDate: string;
 	highlights: string[];
+};
+
+export type DescriptionWithImage = {
+	description: string;
+	techs?: string[];
+	techsHeading?: string;
+	imagePath: string;
+	imageAltText: string;
+	imageWidth: number;
+	imageHeight: number;
+};
+
+export type Project = {
+	name: string;
+	highlights: DescriptionWithImage[];
 };

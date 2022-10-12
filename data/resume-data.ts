@@ -9,7 +9,7 @@ export const EDUCATION: Education[] = [
 		highlights: [
 			'Bachelor of Science in Computer Science with a Minor in Philosophy',
 			'Magna Cum Laude, Merit Scholar',
-			'GPA: 3.85 / 4.0, Dean’s List (all semesters)',
+			"GPA: 3.85 / 4.0, Dean's List (all semesters)",
 		],
 	},
 ];
@@ -25,7 +25,7 @@ export const INTERNSHIPS: Employment[] = [
 			{ title: 'Student Intern', start: 'June 2011', end: 'August 2011' },
 			{ title: 'Student Intern', start: 'June 2010', end: 'August 2010' },
 		],
-		projects: [
+		roles: [
 			{
 				highlights: [
 					'Converted business requirements into Tier 1 system requirements.',
@@ -42,7 +42,7 @@ export const INTERNSHIPS: Employment[] = [
 		start: 'May 2009',
 		end: 'August 2009',
 		titles: 'Student Intern',
-		projects: [
+		roles: [
 			{
 				highlights: [
 					'Application programmer for a web-based system to handle accounting and appointment scheduling.',
@@ -72,7 +72,7 @@ export const EMPLOYMENT_HISTORY: Employment[] = [
 		start: 'April 2022',
 		end: 'September 2022',
 		titles: 'Lead Software Engineer',
-		projects: [
+		roles: [
 			{
 				highlights: [
 					'Technical team lead on a small Agile scrum team working on a telehealth conferencing web application.',
@@ -105,7 +105,7 @@ export const EMPLOYMENT_HISTORY: Employment[] = [
 			{ title: 'Senior Software Development Engineer', start: 'February 2020', end: 'April 2022' },
 			{ title: 'Software Development Engineer', start: 'May 2019', end: 'February 2020' },
 		],
-		projects: [
+		roles: [
 			{
 				highlights: [
 					'Full-stack web developer for advertising technology company.',
@@ -143,7 +143,7 @@ export const EMPLOYMENT_HISTORY: Employment[] = [
 			{ title: 'Senior Software Engineer', start: 'March 2018', end: 'May 2019' },
 			{ title: 'Software Engineer', start: 'January 2012', end: 'March 2018' },
 		],
-		projects: [
+		roles: [
 			{
 				name: 'Full-Stack Web Application Development',
 				start: 'February 2016',

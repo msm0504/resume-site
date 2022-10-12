@@ -2,7 +2,8 @@ import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import Notes from '../notes';
-import { Employment, Project, TitleDuration } from '@/types/index';
+import TechsList from '../techs-list';
+import { Employment, Role, TitleDuration } from '@/types/index';
 import style from '@/styles/employ-details.module.css';
 
 type EmployHistoryDetailsProps = {
@@ -41,36 +42,30 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 		<div className={HEADING_CLASSES}>{titles}</div>
 	);
 
-const formatProject = (project: Project) => (
+const formatRole = (role: Role) => (
 	<div>
 		<div className={`${HEADING_CLASSES} text-info`}>Responsiblities</div>
-		<Notes notes={project.highlights} />
-		{project.techsUsed && (
+		<Notes notes={role.highlights} />
+		{role.techsUsed && (
 			<>
 				<div className={`${HEADING_CLASSES} text-info`}>Technologies Used</div>
-				<ul style={{ listStyle: 'none' }} className='d-flex flex-wrap m-0 p-0'>
-					{project.techsUsed.map((techUsed, index) => (
-						<li className='px-2' key={index}>
-							{techUsed}
-						</li>
-					))}
-				</ul>
+				<TechsList technologies={role.techsUsed} />
 			</>
 		)}
 	</div>
 );
 
-const formatProjects = (projects: Project[], bgColor: string) =>
-	!projects.length ? null : projects.length === 1 ? (
-		<>{formatProject(projects[0])}</>
+const formatRoles = (roles: Role[], bgColor: string) =>
+	!roles.length ? null : roles.length === 1 ? (
+		<>{formatRole(roles[0])}</>
 	) : (
-		<Accordion defaultActiveKey={projects[0].name} flush>
-			{projects.map(project => (
-				<Accordion.Item key={project.name} eventKey={project.name ?? ''}>
-					<Accordion.Button className={`${style.projectListItem} bg-${bgColor} d-block px-1`}>
-						{formatDuration(project.name ?? '', project.start ?? '', project.end ?? '', true)}
+		<Accordion defaultActiveKey={roles[0].name} flush>
+			{roles.map(role => (
+				<Accordion.Item key={role.name} eventKey={role.name ?? ''}>
+					<Accordion.Button className={`${style.roleListItem} bg-${bgColor} d-block px-1`}>
+						{formatDuration(role.name ?? '', role.start ?? '', role.end ?? '', true)}
 					</Accordion.Button>
-					<Accordion.Body className={`bg-${bgColor}`}>{formatProject(project)}</Accordion.Body>
+					<Accordion.Body className={`bg-${bgColor}`}>{formatRole(role)}</Accordion.Body>
 				</Accordion.Item>
 			))}
 		</Accordion>
@@ -79,7 +74,7 @@ const formatProjects = (projects: Project[], bgColor: string) =>
 const EmployHistoryDetails: React.FC<EmployHistoryDetailsProps> = ({ employment, bgColor }) => (
 	<article style={{ minHeight: '400px' }} className={`p-3 bg-${bgColor}`}>
 		<div className='mb-4'>{formatTitles(employment.titles)}</div>
-		{formatProjects(employment.projects, bgColor)}
+		{formatRoles(employment.roles, bgColor)}
 	</article>
 );
 

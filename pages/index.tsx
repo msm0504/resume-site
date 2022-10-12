@@ -1,18 +1,22 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { nanoid } from 'nanoid';
 
 import ContactSection from '@/client/sections/contact';
 import IntroSection from '@/client/sections/intro';
 import EducationSection from '@/client/sections/education';
 import ExperienceSection from '@/client/sections/experience';
 import { EDUCATION, EMPLOYMENT_HISTORY, INTERNSHIPS } from '@/data/resume-data';
-import { Education, Employment } from '@/types/index';
+import { Education, Employment, WithId } from '@/types/index';
 
 type HomeProps = {
 	education: Education[];
-	employHistory: Employment[];
-	internships: Employment[];
+	employHistory: WithId<Employment>[];
+	internships: WithId<Employment>[];
 };
+
+const generateItemIds = <T,>(items: T[]): WithId<T>[] =>
+	items.map(item => ({ id: nanoid(10), ...item }));
 
 const Home: NextPage<HomeProps> = ({ education, employHistory, internships }) => {
 	return (
@@ -38,7 +42,7 @@ export default Home;
 export const getStaticProps: GetStaticProps = () => ({
 	props: {
 		education: EDUCATION,
-		employHistory: EMPLOYMENT_HISTORY,
-		internships: INTERNSHIPS,
+		employHistory: generateItemIds(EMPLOYMENT_HISTORY),
+		internships: generateItemIds(INTERNSHIPS),
 	},
 });
