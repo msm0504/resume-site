@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
 type NotesProps = {
@@ -6,7 +7,23 @@ type NotesProps = {
 };
 
 const formatNote = (note: string) => (
-	<ReactMarkdown components={{ p: React.Fragment }}>{note}</ReactMarkdown>
+	<ReactMarkdown
+		components={{
+			p: React.Fragment,
+			a: ({ href, children }) =>
+				href?.startsWith('/') ? (
+					<Link href={href}>
+						<a>{children}</a>
+					</Link>
+				) : (
+					<a href={href} target='_blank' rel='noreferrer'>
+						{children}
+					</a>
+				),
+		}}
+	>
+		{note}
+	</ReactMarkdown>
 );
 
 const Notes: React.FC<NotesProps> = ({ notes }) =>
