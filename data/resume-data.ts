@@ -160,7 +160,7 @@ export const EMPLOYMENT_HISTORY: Employment[] = [
 					'Ajax',
 					'HTML5',
 					'CSS3',
-					'Twitter Bootstrap',
+					'Bootstrap',
 					'DataTables',
 					'Java Spring',
 					'Hibernate JPA',

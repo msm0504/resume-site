@@ -3,9 +3,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBitbucket, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-import { BITBUCKET_PROFILE, EMAIL_MAILTO, LINKIN_PROFILE, RESUME_URL } from '@/client/constants';
+import { BITBUCKET_PROFILE, LINKIN_PROFILE, RESUME_URL } from '@/client/constants';
 
 type NavbarLinkProps = {
 	text: string;
@@ -20,7 +19,7 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({ text, path, scrollTop = false }
 );
 
 const TopNavbar: React.FC = () => (
-	<Navbar className='px-4' bg='dark' variant='dark' expand='md' sticky='top'>
+	<Navbar className='px-4' bg='dark' variant='dark' expand='md'>
 		<Link href='/'>
 			<a className='navbar-brand'>
 				<h1 className='m-0 fs-5'>Mark Monday</h1>
@@ -36,10 +35,6 @@ const TopNavbar: React.FC = () => (
 					<FontAwesomeIcon icon={faBitbucket} size='xl' />
 					<span className='sr-only'>{'Link to my Bitbucket profile'}</span>
 				</a>
-				<Nav.Link href={EMAIL_MAILTO}>
-					<FontAwesomeIcon icon={faEnvelope} size='xl' />
-					<span className='sr-only'>{'Link to write me an email'}</span>
-				</Nav.Link>
 			</div>
 		</Nav>
 		<Navbar.Toggle aria-controls='top-navbar-nav' />

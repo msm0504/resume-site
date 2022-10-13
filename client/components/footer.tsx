@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faBitbucket, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-import { EMAIL_MAILTO, LINKIN_PROFILE } from '@/client/constants';
+import { BITBUCKET_PROFILE, EMAIL_MAILTO, LINKIN_PROFILE } from '@/client/constants';
 import styles from '@/styles/footer.module.css';
 
 const Footer: React.FC = () => (
@@ -13,6 +13,12 @@ const Footer: React.FC = () => (
 				<a href={LINKIN_PROFILE} target='_blank' rel='noreferrer'>
 					<FontAwesomeIcon icon={faLinkedin} size='3x' />
 					<span className='sr-only'>{'Link to my LinkedIn profile'}</span>
+				</a>
+			</li>
+			<li>
+				<a href={BITBUCKET_PROFILE} target='_blank' rel='noreferrer'>
+					<FontAwesomeIcon icon={faBitbucket} size='3x' />
+					<span className='sr-only'>{'Link to my Bitbucket profile'}</span>
 				</a>
 			</li>
 			<li>

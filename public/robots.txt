@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://markmonday.com
+
+# Sitemaps
+Sitemap: https://markmonday.com/sitemap.xml
