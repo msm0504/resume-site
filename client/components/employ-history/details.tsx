@@ -59,7 +59,7 @@ const formatRoles = (roles: Role[], bgColor: string) =>
 	!roles.length ? null : roles.length === 1 ? (
 		<>{formatRole(roles[0])}</>
 	) : (
-		<Accordion defaultActiveKey={roles[0].name} flush>
+		<Accordion flush>
 			{roles.map(role => (
 				<Accordion.Item key={role.name} eventKey={role.name ?? ''}>
 					<Accordion.Button className={`${style.roleListItem} bg-${bgColor} d-block px-1`}>
