@@ -19,7 +19,7 @@ const NavbarLink: React.FC<NavbarLinkProps> = ({ text, path, scrollTop = false }
 );
 
 const TopNavbar: React.FC = () => (
-	<Navbar className='px-4' bg='dark' variant='dark' expand='md'>
+	<Navbar className='px-4' bg='dark' variant='dark' expand='md' sticky='top'>
 		<Link href='/'>
 			<a className='navbar-brand'>
 				<h1 className='m-0 fs-5'>Mark Monday</h1>
