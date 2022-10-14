@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 
 import DesktopView from './desktop-view';
@@ -8,6 +9,14 @@ import { Employment, WithId } from '@/types/index';
 type EmployHistoryProps = {
 	history: WithId<Employment>[];
 	bgColor?: string;
+};
+
+export type EmployHistoryViewProps = {
+	history: WithId<Employment>[];
+	bgColor: string;
+	selected: string;
+	fnOnSelect: (eventKey: string) => void;
+	fnFormatLabel: (entry: WithId<Employment>) => string | JSX.Element;
 };
 
 const formatEntryLabel = (entry: WithId<Employment>) => (
@@ -25,13 +34,22 @@ const formatEntryLabel = (entry: WithId<Employment>) => (
 );
 
 const EmployHistory: React.FC<EmployHistoryProps> = ({ history, bgColor = 'secondary' }) => {
+	const [selected, setSelected] = useState<string>(history[0]?.id || '');
 	const [width] = useMediaQuery();
 
 	if (!history || !history.length) return null;
 
 	const View = width >= LG_MIN_WIDTH ? DesktopView : MobileView;
 
-	return <View history={history} bgColor={bgColor} fnFormatLabel={formatEntryLabel} />;
+	return (
+		<View
+			history={history}
+			bgColor={bgColor}
+			selected={selected}
+			fnOnSelect={(eventKey: string) => setSelected(eventKey)}
+			fnFormatLabel={formatEntryLabel}
+		/>
+	);
 };
 
 export default EmployHistory;

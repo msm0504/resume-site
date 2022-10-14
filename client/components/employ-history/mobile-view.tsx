@@ -1,21 +1,23 @@
 import Accordion from 'react-bootstrap/Accordion';
 
+import { EmployHistoryViewProps } from './';
 import EmployHistoryDetails from './details';
-import { Employment, WithId } from '@/types/index';
 import style from '@/styles/employ-mobile.module.css';
 
-type EmployHistoryMobileProps = {
-	history: WithId<Employment>[];
-	bgColor: string;
-	fnFormatLabel: (entry: WithId<Employment>) => string | JSX.Element;
-};
+type EmployHistoryMobileProps = EmployHistoryViewProps;
 
 const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({
 	history,
 	bgColor,
+	selected,
+	fnOnSelect,
 	fnFormatLabel,
 }) => (
-	<Accordion defaultActiveKey={history[0].id} flush>
+	<Accordion
+		flush
+		activeKey={selected}
+		onSelect={eventKey => fnOnSelect(eventKey ? String(eventKey) : '')}
+	>
 		{history.map(entry => (
 			<Accordion.Item key={entry.id} eventKey={entry.id}>
 				<Accordion.Button className={`${style.employListItem} bg-${bgColor} text-light`}>

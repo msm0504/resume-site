@@ -4,14 +4,11 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 
+import { EmployHistoryViewProps } from './';
 import EmployHistoryDetails from './details';
 import { Employment, WithId } from 'types';
 
-type EmployHistoryDesktopProps = {
-	history: WithId<Employment>[];
-	bgColor: string;
-	fnFormatLabel: (entry: WithId<Employment>) => string | JSX.Element;
-};
+type EmployHistoryDesktopProps = EmployHistoryViewProps;
 
 const formatNavItem = (id: string, label: string | JSX.Element) => (
 	<Nav.Item key={id}>
@@ -30,6 +27,8 @@ const formatTabPane = (entry: WithId<Employment>, bgColor: string) => (
 const EmployHistoryDesktop: React.FC<EmployHistoryDesktopProps> = ({
 	history,
 	bgColor,
+	selected,
+	fnOnSelect,
 	fnFormatLabel,
 }) => {
 	const [tabs, setTabs] = useState<JSX.Element[]>([]);
@@ -47,7 +46,7 @@ const EmployHistoryDesktop: React.FC<EmployHistoryDesktopProps> = ({
 	}, [history]);
 
 	return (
-		<Tab.Container defaultActiveKey={history[0].id}>
+		<Tab.Container activeKey={selected} onSelect={eventKey => fnOnSelect(eventKey || '')}>
 			<Row>
 				<Col className='pe-0' sm={3}>
 					<Nav className='flex-column' variant='pills'>
