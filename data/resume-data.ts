@@ -66,6 +66,33 @@ export const INTERNSHIPS: Employment[] = [
 
 export const EMPLOYMENT_HISTORY: Employment[] = [
 	{
+		companyName: 'University of Phoenix',
+		city: 'Remote',
+		state: '',
+		start: 'March 2023',
+		end: 'present',
+		titles: 'Software Engineer - Contractor',
+		roles: [
+			{
+				highlights: [
+					'Member of an Agile scrum team writing and maintaining microservices as part of an event-driven architecture.',
+					'Contribute code to publisher and consumer functions to synch student financial information between internal databases and Salesforce.',
+					'Modify Terraform scripts to deploy code and configuration changes to AWS.',
+				],
+				techsUsed: [
+					'Node.js',
+					'Typescript',
+					'Java Spring Boot',
+					'Apache Kafka',
+					'AWS Lambda',
+					'AWS ECS',
+					'AWS IAM',
+					'Terraform',
+				],
+			},
+		],
+	},
+	{
 		companyName: 'Caregility',
 		city: 'Eatontown',
 		state: 'New Jersey',
@@ -125,7 +152,7 @@ export const EMPLOYMENT_HISTORY: Employment[] = [
 					'JUnit',
 					'Mockito',
 					'ReactJS + Redux',
-					'NodeJS',
+					'Node.js',
 					'Webpack',
 					'Jest',
 					'Jenkins',

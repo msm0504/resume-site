@@ -25,7 +25,8 @@ const formatEntryLabel = (entry: WithId<Employment>) => (
 			<Card.Title className='fw-bold'>{entry.companyName}</Card.Title>
 		</h3>
 		<Card.Subtitle>
-			{entry.city}, {entry.state}
+			{entry.city}
+			{entry.state ? `, ${entry.state}` : null}
 		</Card.Subtitle>
 		<Card.Subtitle className='mb-2'>
 			{entry.start} - {entry.end}
