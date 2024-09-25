@@ -7,7 +7,7 @@ const IntroSection: React.FC = () => (
 		</p>
 		<h2 className='display-3 lh-base'>I create technical solutions.</h2>
 		<p>{`I'm a software engineer specializing in React and Java Spring Boot.`}</p>
-		<p>{`Currently, I'm looking for a new opportunity, while continuing to grow my skills.`}</p>
+		<p>{`Currently, I'm a senior UI developer for Travelport.`}</p>
 	</section>
 );
 

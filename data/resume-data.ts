@@ -66,11 +66,37 @@ export const INTERNSHIPS: Employment[] = [
 
 export const EMPLOYMENT_HISTORY: Employment[] = [
 	{
+		companyName: 'Travelport',
+		city: 'Remote',
+		state: '',
+		start: 'June 2023',
+		end: 'present',
+		titles: 'Senior Software Development Engineer II',
+		roles: [
+			{
+				highlights: [
+					'UI developer on a small Agile team building web applications to support travel booking through agencies.',
+					'Translate HTML screen mocks into interactive proofs of concept with company’s theme and branding.',
+					'Work with back-end developers to integrate UI with APIs as completed.',
+					'Gave presentation to my VP comparing internally maintained React component library to Material UI and Ant Design to help in deciding what to use for new applications.',
+				],
+				techsUsed: [
+					'ReactJS',
+					'Typescript',
+					'Material UI',
+					'Vite',
+					'React Testing Library',
+					'Mock Service Worker',
+				],
+			},
+		],
+	},
+	{
 		companyName: 'University of Phoenix',
 		city: 'Remote',
 		state: '',
 		start: 'March 2023',
-		end: 'present',
+		end: 'June 2023',
 		titles: 'Software Engineer - Contractor',
 		roles: [
 			{

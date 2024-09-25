@@ -29,7 +29,7 @@ const Footer: React.FC = () => (
 			</li>
 		</ul>
 		<p>
-			<small>&copy; 2022 Mark Monday. All rights reserved.</small>
+			<small>&copy; {new Date().getFullYear()} Mark Monday. All rights reserved.</small>
 		</p>
 	</footer>
 );

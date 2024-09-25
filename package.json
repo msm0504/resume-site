@@ -6,8 +6,8 @@
 		"build": "next build",
 		"check-types": "tsc",
 		"dev": "next dev",
-		"format": "prettier \"client/**/*.(ts|tsx)\" \"pages/**/*.(ts|tsx)\" --write",
-		"lint": "eslint --ext ts --ext tsx \"client/**/*.ts*\" \"pages/**/*.ts*\"",
+		"format": "prettier \"**/*.(ts|tsx)\" --write",
+		"lint": "eslint --ext ts,tsx",
 		"start": "next start"
 	},
 	"dependencies": {

@@ -25,7 +25,7 @@ const Home: NextPage<HomeProps> = ({ education, employHistory, internships }) =>
 				<title>Mark Monday Portfolio</title>
 				<meta
 					name='description'
-					content="Hi, my name is Mark Monday. I create technical solutions. I'm a software engineer specializing in React and Java Spring Boot. Currently, I'm looking for a new opportunity, while continuing to grow my skills."
+					content="Hi, my name is Mark Monday. I create technical solutions. I'm a software engineer specializing in React and Java Spring Boot. Currently, I'm a senior UI developer for Travelport."
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
