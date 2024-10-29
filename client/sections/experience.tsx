@@ -1,5 +1,5 @@
 import EmployHistory from '../components/employ-history';
-import { Employment, WithId } from '@/types/index';
+import { Employment, WithId } from '@/types';
 
 type ExperienceProps = {
 	employHistory: WithId<Employment>[];

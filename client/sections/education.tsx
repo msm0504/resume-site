@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 
 import EmployHistory from '../components/employ-history';
 import Notes from '../components/notes';
-import { Education, Employment, WithId } from '@/types/index';
+import { Education, Employment, WithId } from '@/types';
 
 type EducationProps = {
 	education: Education[];

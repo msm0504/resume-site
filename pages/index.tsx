@@ -7,7 +7,7 @@ import IntroSection from '@/client/sections/intro';
 import EducationSection from '@/client/sections/education';
 import ExperienceSection from '@/client/sections/experience';
 import { EDUCATION, EMPLOYMENT_HISTORY, INTERNSHIPS } from '@/data/resume-data';
-import { Education, Employment, WithId } from '@/types/index';
+import { Education, Employment, WithId } from '@/types';
 
 type HomeProps = {
 	education: Education[];

@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import DescriptWithImg from '@/client/components/descript-with-img';
 import { PERSONAL_PROJECTS } from '@/data/projects';
-import { Project } from '@/types/index';
+import { Project } from '@/types';
 
 type ProjectsProps = {
 	projects: Project[];

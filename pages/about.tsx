@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import DescriptWithImg from '@/client/components/descript-with-img';
 import { ABOUT_ME } from '@/data/about-me';
-import { DescriptionWithImage } from '@/types/index';
+import { DescriptionWithImage } from '@/types';
 
 type AboutProps = {
 	aboutMe: DescriptionWithImage;

@@ -1,4 +1,4 @@
-import { DescriptionWithImage } from '@/types/index';
+import { DescriptionWithImage } from '@/types';
 
 export const ABOUT_ME: DescriptionWithImage = {
 	description:

@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import Notes from './notes';
 import TechsList from './techs-list';
-import { DescriptionWithImage } from '@/types/index';
+import { DescriptionWithImage } from '@/types';
 
 type DescriptWithImgProps = {
 	item: DescriptionWithImage;

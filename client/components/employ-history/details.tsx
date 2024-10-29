@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import Notes from '../notes';
 import TechsList from '../techs-list';
-import { Employment, Role, TitleDuration } from '@/types/index';
+import { Employment, Role, TitleDuration } from '@/types';
 import style from '@/styles/employ-details.module.css';
 
 type EmployHistoryDetailsProps = {
