@@ -1,3 +1,0 @@
-.employListItem:not(:global(.collapsed)) {
-	background-color: var(--bs-primary) !important;
-}

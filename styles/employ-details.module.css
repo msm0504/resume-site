@@ -1,5 +1,0 @@
-.roleListItem:not(:global(.collapsed)) :global(.h6) {
-	color: var(--bs-primary);
-	text-decoration: underline;
-	text-decoration-color: var(--bs-primary);
-}

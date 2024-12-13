@@ -7,7 +7,7 @@ export const PERSONAL_PROJECTS: Project[] = [
 			{
 				description:
 					"[Media Bubbles](https://mediabubbles.net) is a news aggregator to show recent headlines either filtered according to political bias or from sources with various political leanings. Bing's News API is used to get the latest headlines; the bias ratings for the news sources are from [AllSides](https://www.allsides.com/media-bias/media-bias-ratings).",
-				techs: ['React', 'Next.js', 'Typescript', 'Bootstrap', 'MongoDB'],
+				techs: ['React', 'Next.js', 'Typescript', 'Material UI', 'MongoDB'],
 				techsHeading: 'Technologies Used',
 				imagePath: '/project-images/media-bubbles/home.png',
 				imageAltText: 'Media Bubbles home screen',

@@ -11,6 +11,6 @@ html {
 body {
 	padding: 0;
 	margin: 0;
-	background-color: var(--bs-dark);
-	color: var(--bs-light);
+	background-color: var(--mui-palette-dark-main);
+	color: var(--mui-palette-light-main);
 }
