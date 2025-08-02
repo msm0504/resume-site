@@ -66,11 +66,37 @@ export const INTERNSHIPS: Employment[] = [
 
 export const EMPLOYMENT_HISTORY: Employment[] = [
 	{
+		companyName: 'Broadcast Music, Inc. (BMI)',
+		city: 'Remote',
+		state: '',
+		start: 'March 2025',
+		end: 'present',
+		titles: 'Senior Software Developer',
+		roles: [
+			{
+				highlights: [
+					'Full-stack developer on a small Agile team transitioning legacy applications to a modern web architecture.',
+					'Lead developer of both React UI and Java Spring Boot API for an internal application to manage data concerning musical works, writers, producers, and royalty shares.',
+				],
+				techsUsed: [
+					'ReactJS',
+					'Typescript',
+					'Material UI',
+					'Vite',
+					'Java Spring Boot',
+					'Lombok',
+					'MySQL',
+					'PostgreSQL',
+				],
+			},
+		],
+	},
+	{
 		companyName: 'Travelport',
 		city: 'Remote',
 		state: '',
 		start: 'June 2023',
-		end: 'present',
+		end: 'March 2025',
 		titles: 'Senior Software Development Engineer II',
 		roles: [
 			{

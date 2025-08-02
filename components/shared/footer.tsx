@@ -1,8 +1,8 @@
 import { Box, IconButton, Typography } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBitbucket, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { BITBUCKET_PROFILE, EMAIL_MAILTO, LINKEDIN_PROFILE } from '@/constants';
+import { EMAIL_MAILTO, GITHUB_PROFILE, LINKEDIN_PROFILE } from '@/constants';
 import styles from '@/styles/footer.module.css';
 
 const Footer: React.FC = () => (
@@ -26,13 +26,13 @@ const Footer: React.FC = () => (
 			<li>
 				<IconButton
 					sx={{ padding: 0 }}
-					aria-label='Link to my Bitbucket profile'
-					href={BITBUCKET_PROFILE}
+					aria-label='Link to my GitHub profile'
+					href={GITHUB_PROFILE}
 					color='primary'
 					target='_blank'
 					rel='noreferrer'
 				>
-					<FontAwesomeIcon icon={faBitbucket} size='2x' />
+					<FontAwesomeIcon icon={faGithub} size='2x' />
 				</IconButton>
 			</li>
 			<li>

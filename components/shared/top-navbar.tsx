@@ -14,9 +14,9 @@ import {
 	Typography,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBitbucket, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { BITBUCKET_PROFILE, LINKEDIN_PROFILE, RESUME_URL } from '@/constants';
+import { GITHUB_PROFILE, LINKEDIN_PROFILE, RESUME_URL } from '@/constants';
 
 type PageLink = {
 	label: string;
@@ -65,13 +65,13 @@ const TopNavbar: React.FC = () => {
 						</IconButton>
 						<IconButton
 							sx={{ padding: 0 }}
-							aria-label='Link to my Bitbucket profile'
-							href={BITBUCKET_PROFILE}
+							aria-label='Link to my GitHub profile'
+							href={GITHUB_PROFILE}
 							color='primary'
 							target='_blank'
 							rel='noreferrer'
 						>
-							<FontAwesomeIcon icon={faBitbucket} />
+							<FontAwesomeIcon icon={faGithub} />
 						</IconButton>
 					</Stack>
 					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>

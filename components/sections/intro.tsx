@@ -13,7 +13,7 @@ const IntroSection: React.FC = () => (
 			I create technical solutions.
 		</Typography>
 		<Typography component='p'>{`I'm a software engineer specializing in React and Java Spring Boot.`}</Typography>
-		<Typography component='p'>{`Currently, I'm a senior UI developer for Travelport.`}</Typography>
+		<Typography component='p'>{`Currently, I'm a senior full-stack developer for BMI.`}</Typography>
 	</section>
 );
 
