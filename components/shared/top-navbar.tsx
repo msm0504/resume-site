@@ -1,140 +1,112 @@
-'use client';
-import { useState } from 'react';
-import Link from 'next/link';
-import {
-	AppBar,
-	Box,
-	Container,
-	IconButton,
-	Link as MuiLink,
-	Menu,
-	MenuItem,
-	Stack,
-	Toolbar,
-	Typography,
-} from '@mui/material';
+import { NavigationMenu } from '@base-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { Button } from './base-ui';
 import { GITHUB_PROFILE, LINKEDIN_PROFILE, RESUME_URL } from '@/constants';
+import tw from '@/util/tailwind-template';
 
 type PageLink = {
 	label: string;
 	route: string;
-	scrollTop: boolean;
 };
 
 const pages: PageLink[] = [
-	{ label: 'Experience', route: '/#prof-experience', scrollTop: false },
-	{ label: 'Education', route: '/#education', scrollTop: false },
-	{ label: 'Projects', route: '/projects', scrollTop: true },
-	{ label: 'About', route: '/about', scrollTop: true },
-	{ label: 'Contact', route: '/#contact', scrollTop: false },
+	{ label: 'Experience', route: '/#prof-experience' },
+	{ label: 'Education', route: '/#education' },
+	{ label: 'Projects', route: '/projects' },
+	{ label: 'About', route: '/about' },
+	{ label: 'Contact', route: '/#contact' },
 ];
 
+const contentClassName = tw`h-full w-[calc(100vw-40px)] p-2 transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%] min-[500px]:w-max min-[500px]:max-w-100`;
+
 const TopNavbar: React.FC = () => {
-	const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget);
-	};
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
-
 	return (
-		<AppBar color='dark' position='sticky' elevation={0}>
-			<Container maxWidth='xl'>
-				<Toolbar disableGutters>
-					<Stack direction='row' flexGrow={1} spacing={4}>
-						<MuiLink underline='none' component={Link} href='/'>
-							<Typography component='h1' fontSize='1.25rem'>
-								Mark Monday
-							</Typography>
-						</MuiLink>
-						<IconButton
-							sx={{ padding: 0 }}
-							aria-label='Link to my LinkedIn profile'
-							href={LINKEDIN_PROFILE}
-							color='primary'
-							target='_blank'
-							rel='noreferrer'
-						>
-							<FontAwesomeIcon icon={faLinkedin} />
-						</IconButton>
-						<IconButton
-							sx={{ padding: 0 }}
-							aria-label='Link to my GitHub profile'
-							href={GITHUB_PROFILE}
-							color='primary'
-							target='_blank'
-							rel='noreferrer'
-						>
-							<FontAwesomeIcon icon={faGithub} />
-						</IconButton>
-					</Stack>
-					<Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-						<IconButton
-							color='primary'
-							aria-label='open main menu'
-							aria-controls='menu-appbar'
-							aria-haspopup='true'
-							onClick={handleOpenNavMenu}
-						>
-							<FontAwesomeIcon icon={faBars} />
-						</IconButton>
-						<Menu
-							id='menu-appbar'
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: 'bottom',
-								horizontal: 'left',
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'left',
-							}}
-							open={!!anchorElNav}
-							onClose={handleCloseNavMenu}
-							sx={{ display: { xs: 'block', md: 'none' } }}
-						>
+		<NavigationMenu.Root className='min-h-6 w-full'>
+			<NavigationMenu.List className='relative mx-auto flex w-full max-w-7xl items-center p-4'>
+				<NavigationMenu.Item className='flex md:hidden'>
+					<NavigationMenu.Trigger>
+						<FontAwesomeIcon size='xl' aria-label='open pages menu' icon={faBars} />
+					</NavigationMenu.Trigger>
+					<NavigationMenu.Content className={contentClassName}>
+						<ul>
 							{pages.map(page => (
-								<MenuItem key={page.label} component={Link} href={page.route}>
-									<Typography sx={{ textAlign: 'center' }}>{page.label}</Typography>
-								</MenuItem>
+								<li key={page.label}>
+									<Button color='gray' variant='text' href={page.route}>
+										{page.label}
+									</Button>
+								</li>
 							))}
-							<MenuItem href={RESUME_URL} target='_blank' rel='noreferrer'>
-								<Typography sx={{ textAlign: 'center' }}>Resume (.pdf)</Typography>
-							</MenuItem>
-						</Menu>
-					</Box>
-					<Stack direction='row' spacing={4} sx={{ display: { xs: 'none', md: 'flex' } }}>
-						{pages.map(page => (
-							<MuiLink
-								key={page.label}
-								underline='none'
-								sx={{ my: 2, display: 'block' }}
-								component={Link}
-								href={page.route}
-							>
-								{page.label}
-							</MuiLink>
-						))}
-						<MuiLink
-							underline='none'
-							sx={{ my: 2, display: 'block' }}
-							href={RESUME_URL}
-							target='_blank'
-							rel='noreferrer'
-						>
-							Resume (.pdf)
-						</MuiLink>
-					</Stack>
-				</Toolbar>
-			</Container>
-		</AppBar>
+							<li>
+								<Button color='gray' variant='text' href={RESUME_URL}>
+									Resume (.pdf)
+								</Button>
+							</li>
+						</ul>
+					</NavigationMenu.Content>
+				</NavigationMenu.Item>
+				<NavigationMenu.Item>
+					<Button className='p-2' color='gray' variant='text' href='/'>
+						<h1 className='text-xl'>Mark Monday</h1>
+					</Button>
+				</NavigationMenu.Item>
+				<NavigationMenu.Item>
+					<Button
+						className='p-2'
+						color='gray'
+						variant='text'
+						href={LINKEDIN_PROFILE}
+						target='_blank'
+						rel='noreferrer'
+					>
+						<FontAwesomeIcon size='lg' aria-label='Link to my LinkedIn profile' icon={faLinkedin} />
+					</Button>
+				</NavigationMenu.Item>
+				<NavigationMenu.Item>
+					<Button
+						className='p-2'
+						color='gray'
+						variant='text'
+						href={GITHUB_PROFILE}
+						target='_blank'
+						rel='noreferrer'
+					>
+						<FontAwesomeIcon size='lg' aria-label='Link to my GitHub profile' icon={faGithub} />
+					</Button>
+				</NavigationMenu.Item>
+				<div className='grow' />
+				{pages.map(page => (
+					<NavigationMenu.Item key={page.label} className='hidden md:block'>
+						<Button className='my-2' color='gray' variant='text' href={page.route}>
+							{page.label}
+						</Button>
+					</NavigationMenu.Item>
+				))}
+				<NavigationMenu.Item className='hidden md:block'>
+					<Button className='my-2' color='gray' variant='text' href={RESUME_URL}>
+						Resume (.pdf)
+					</Button>
+				</NavigationMenu.Item>
+			</NavigationMenu.List>
+
+			<NavigationMenu.Portal>
+				<NavigationMenu.Positioner
+					sideOffset={10}
+					collisionPadding={{ top: 5, bottom: 5, left: 20, right: 20 }}
+					collisionAvoidance={{ side: 'none' }}
+					className="h-(--positioner-height) w-(--positioner-width) max-w-(--available-width) transition-[top,left,right,bottom] duration-(--duration) ease-(--easing) before:absolute before:content-[''] data-instant:transition-none data-[side=bottom]:before:top-2.5 data-[side=bottom]:before:right-0 data-[side=bottom]:before:left-0 data-[side=bottom]:before:h-2.5 data-[side=left]:before:top-0 data-[side=left]:before:right-2.5 data-[side=left]:before:bottom-0 data-[side=left]:before:w-2.5 data-[side=right]:before:top-0 data-[side=right]:before:bottom-0 data-[side=right]:before:left-2.5 data-[side=right]:before:w-2.5 data-[side=top]:before:right-0 data-[side=top]:before:bottom-2.5 data-[side=top]:before:left-0 data-[side=top]:before:h-2.5"
+					style={{
+						['--duration' as string]: '0.35s',
+						['--easing' as string]: 'cubic-bezier(0.22, 1, 0.36, 1)',
+					}}
+				>
+					<NavigationMenu.Popup className='relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) border border-slate-950 bg-white text-slate-950 shadow-[0.25rem_0.25rem_0] shadow-black/12 transition-[opacity,transform,width,height,scale] duration-(--duration) ease-(--easing) outline-none data-ending-style:scale-90 data-ending-style:opacity-0 data-ending-style:duration-150 data-ending-style:ease-[ease] data-starting-style:scale-90 data-starting-style:opacity-0 dark:border-white dark:bg-slate-950 dark:text-white dark:shadow-none'>
+						<NavigationMenu.Viewport className='relative h-full w-full overflow-hidden' />
+					</NavigationMenu.Popup>
+				</NavigationMenu.Positioner>
+			</NavigationMenu.Portal>
+		</NavigationMenu.Root>
 	);
 };
 

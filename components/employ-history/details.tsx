@@ -1,32 +1,21 @@
 import { Fragment } from 'react';
-import {
-	Accordion,
-	AccordionSummary,
-	AccordionDetails,
-	Box,
-	Stack,
-	Typography,
-} from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Notes from '../shared/notes';
 import TechsList from '../shared/techs-list';
+import { Accordion } from '../shared/base-ui';
 import { Employment, Role, TitleDuration } from '@/types';
 
 type EmployHistoryDetailsProps = {
 	employment: Employment;
 };
 
-const formatDuration = (title: string, start: string, end: string, isHeading = false) => {
+const formatDuration = (title: string, start: string, end: string) => {
 	return (
-		<Stack direction='row' flexWrap='wrap' alignItems='center' width='100%' paddingRight={2}>
-			<Typography flexGrow={1} component={isHeading ? 'h4' : 'span'}>
-				{title}
-			</Typography>
-			<Typography>
+		<div className='flex w-full flex-wrap items-center pr-2 text-lg'>
+			<div className='grow'>{title}</div>
+			<div>
 				{start} - {end}
-			</Typography>
-		</Stack>
+			</div>
+		</div>
 	);
 };
 
@@ -40,20 +29,16 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 			))}
 		</>
 	) : (
-		<Typography>{titles}</Typography>
+		<p>{titles}</p>
 	);
 
 const formatRole = (role: Role) => (
 	<div>
-		<Typography variant='h6' fontWeight='semibold' color='info'>
-			Responsiblities
-		</Typography>
+		<h6 className='font-semibold text-sand-300'>Responsiblities</h6>
 		<Notes notes={role.highlights} />
 		{role.techsUsed && (
 			<>
-				<Typography variant='h6' fontWeight='semibold' color='info'>
-					Technologies Used
-				</Typography>
+				<h6 className='font-semibold text-sand-300'>Technologies Used</h6>
 				<TechsList technologies={role.techsUsed} />
 			</>
 		)}
@@ -64,27 +49,25 @@ const formatRoles = (roles: Role[]) =>
 	!roles.length ? null : roles.length === 1 ? (
 		<>{formatRole(roles[0])}</>
 	) : (
-		<div>
+		<Accordion.Root>
 			{roles.map(role => (
-				<Accordion key={role.name}>
-					<AccordionSummary
-						expandIcon={<FontAwesomeIcon icon={faChevronDown} />}
-						aria-controls={`panel-${role.name}-content`}
-						id={`panel-${role.name}-header`}
-					>
-						{formatDuration(role.name ?? '', role.start ?? '', role.end ?? '', true)}
-					</AccordionSummary>
-					<AccordionDetails>{formatRole(role)}</AccordionDetails>
-				</Accordion>
+				<Accordion.Item key={role.name}>
+					<Accordion.Header>
+						<Accordion.Trigger>
+							{formatDuration(role.name ?? '', role.start ?? '', role.end ?? '')}
+						</Accordion.Trigger>
+					</Accordion.Header>
+					<Accordion.Panel className='pl-4'>{formatRole(role)}</Accordion.Panel>
+				</Accordion.Item>
 			))}
-		</div>
+		</Accordion.Root>
 	);
 
 const EmployHistoryDetails: React.FC<EmployHistoryDetailsProps> = ({ employment }) => (
-	<Box component='article' minHeight='400px' padding={3}>
-		<Box marginBottom={4}>{formatTitles(employment.titles)}</Box>
+	<article className='p-3'>
+		<div className='mb-4'>{formatTitles(employment.titles)}</div>
 		{formatRoles(employment.roles)}
-	</Box>
+	</article>
 );
 
 export default EmployHistoryDetails;

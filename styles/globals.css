@@ -1,3 +1,41 @@
+@import 'tailwindcss';
+@import './colors.css';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--font-body: var(--font-lato);
+	--font-heading: var(--font-arvo);
+}
+
+@layer base {
+	body {
+		font-family: var(--font-body);
+		background: var(--color-gray-950);
+		color: var(--color-gray-100);
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-heading);
+	}
+	h1 {
+		font-size: var(--text-4xl);
+		font-weight: var(--font-weight-bold);
+	}
+	h2 {
+		font-size: var(--text-3xl);
+	}
+	h3 {
+		font-size: var(--text-xl);
+	}
+	h4 {
+		font-size: var(--text-lg);
+	}
+}
+
 html {
 	box-sizing: border-box;
 }
@@ -11,6 +49,4 @@ html {
 body {
 	padding: 0;
 	margin: 0;
-	background-color: var(--mui-palette-dark-main);
-	color: var(--mui-palette-light-main);
 }

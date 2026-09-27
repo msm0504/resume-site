@@ -1,8 +1,8 @@
 'use client';
 import { type ReactElement, useState } from 'react';
-import { Box, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import DesktopView from './desktop-view';
 import MobileView from './mobile-view';
+import useScreenSize, { MD_MIN_WIDTH } from '../shared/use-screen-size';
 import { Employment, WithId } from '@/types';
 
 type EmployHistoryProps = {
@@ -17,24 +17,22 @@ export type EmployHistoryViewProps = {
 };
 
 const formatEntryLabel = (entry: WithId<Employment>) => (
-	<Stack spacing={1}>
-		<Typography variant='h6' fontWeight='bold'>
-			{entry.companyName}
-		</Typography>
-		<Box>
+	<div className='flex flex-col gap-1'>
+		<div className='text-xl font-bold'>{entry.companyName}</div>
+		<div className='text-lg'>
 			{entry.city}
 			{entry.state ? `, ${entry.state}` : null}
-		</Box>
-		<Box>
+		</div>
+		<div className='text-lg'>
 			{entry.start} - {entry.end}
-		</Box>
-	</Stack>
+		</div>
+	</div>
 );
 
 const EmployHistory: React.FC<EmployHistoryProps> = ({ history }) => {
 	const [selected, setSelected] = useState<string>(history[0]?.id || '');
-	const theme = useTheme();
-	const isMdScreen = useMediaQuery(theme.breakpoints.up('md'));
+	const [width] = useScreenSize();
+	const isMdScreen = width >= MD_MIN_WIDTH;
 
 	if (!history || !history.length) return null;
 

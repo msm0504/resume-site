@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Box, Container, Typography } from '@mui/material';
 import { PERSONAL_PROJECTS } from '@/data/projects';
 import DescriptWithImg from '@/components/shared/descript-with-img';
 
@@ -11,30 +10,21 @@ export const metadata: Metadata = {
 
 const Projects: React.FC = () => (
 	<main>
-		<Box bgcolor='bg1.main'>
-			<Container
-				component='section'
-				id='projects'
-				maxWidth='lg'
-				sx={{ marginY: 0, paddingX: 3, paddingY: 5 }}
-			>
-				<Typography component='h2' variant='h4' fontWeight='bold' color='info' marginBottom={4}>
-					Personal Projects
-				</Typography>
+		<div className='bg-teal-950'>
+			<section className='mx-auto my-0 w-full max-w-7xl px-3 py-5' id='projects'>
+				<h2 className='mb-4 font-bold text-sand-300'>Personal Projects</h2>
 				{PERSONAL_PROJECTS.map(project => (
 					<article key={project.name}>
-						<Typography component='h3' variant='h6'>
-							{project.name}
-						</Typography>
+						<h3>{project.name}</h3>
 						{project.highlights.map((descript, descriptIndex) => (
-							<Box paddingY={2} key={descript.description.substring(0, 10)}>
+							<div className='py-2' key={descript.description.substring(0, 10)}>
 								<DescriptWithImg item={descript} imageLeft={descriptIndex % 2 === 0} />
-							</Box>
+							</div>
 						))}
 					</article>
 				))}
-			</Container>
-		</Box>
+			</section>
+		</div>
 	</main>
 );
 
