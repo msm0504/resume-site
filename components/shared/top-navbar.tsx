@@ -19,7 +19,7 @@ const pages: PageLink[] = [
 	{ label: 'Contact', route: '/#contact' },
 ];
 
-const contentClassName = tw`h-full w-[calc(100vw-40px)] p-2 transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%] min-[500px]:w-max min-[500px]:max-w-100`;
+const contentClassName = tw`h-full w-[calc(100vw-40px)] bg-gray-950 p-2 transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%] min-[500px]:w-max min-[500px]:max-w-100`;
 
 const TopNavbar: React.FC = () => {
 	return (
@@ -39,7 +39,13 @@ const TopNavbar: React.FC = () => {
 								</li>
 							))}
 							<li>
-								<Button color='gray' variant='text' href={RESUME_URL}>
+								<Button
+									color='gray'
+									variant='text'
+									href={RESUME_URL}
+									target='_blank'
+									rel='noreferrer'
+								>
 									Resume (.pdf)
 								</Button>
 							</li>
@@ -84,7 +90,14 @@ const TopNavbar: React.FC = () => {
 					</NavigationMenu.Item>
 				))}
 				<NavigationMenu.Item className='hidden md:block'>
-					<Button className='my-2' color='gray' variant='text' href={RESUME_URL}>
+					<Button
+						className='my-2'
+						color='gray'
+						variant='text'
+						href={RESUME_URL}
+						target='_blank'
+						rel='noreferrer'
+					>
 						Resume (.pdf)
 					</Button>
 				</NavigationMenu.Item>

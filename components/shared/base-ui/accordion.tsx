@@ -44,7 +44,7 @@ export const Trigger: React.FC<BaseAccordion.Trigger.Props> = ({
 export const Panel: React.FC<BaseAccordion.Panel.Props> = ({ children, className, ...props }) => (
 	<BaseAccordion.Panel
 		className={cn(
-			'py-4 transition-[height] duration-150 ease-[ease-out] data-ending-style:h-0 data-starting-style:h-0',
+			'h-(--accordion-panel-height) overflow-hidden py-4 transition-[height] duration-150 ease-[ease-out] data-ending-style:h-0 data-starting-style:h-0',
 			className
 		)}
 		{...props}
