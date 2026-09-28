@@ -36,33 +36,33 @@ const BUTTON_CVA_CONFIG: CvaColorVarConfig = {
 		{
 			color: 'gray',
 			variant: 'contained',
-			class: tw`not-data-disabled:bg-gray-100 not-data-disabled:text-gray-950 hover:not-data-disabled:bg-gray-300 focus-visible:outline-gray-100`,
+			class: tw`not-data-disabled:bg-gray-950 not-data-disabled:text-gray-100 hover:not-data-disabled:bg-gray-700 focus-visible:outline-gray-950 dark:not-data-disabled:bg-gray-100 dark:not-data-disabled:text-gray-950 dark:hover:not-data-disabled:bg-gray-300 dark:focus-visible:outline-gray-100`,
 		},
 		{
 			color: 'gray',
 			variant: 'outlined',
-			class: tw`not-data-disabled:border-gray-100 not-data-disabled:bg-gray-950 not-data-disabled:text-gray-100 hover:not-data-disabled:bg-gray-800 focus-visible:outline-gray-100`,
+			class: tw`not-data-disabled:border-gray-950 not-data-disabled:bg-gray-100 not-data-disabled:text-gray-950 hover:not-data-disabled:bg-gray-200 focus-visible:outline-gray-950 dark:not-data-disabled:border-gray-100 dark:not-data-disabled:bg-gray-950 dark:not-data-disabled:text-gray-100 dark:hover:not-data-disabled:bg-gray-800 dark:focus-visible:outline-gray-100`,
 		},
 		{
 			color: 'gray',
 			variant: 'text',
-			class: tw`not-data-disabled:bg-inherit not-data-disabled:text-gray-100 hover:not-data-disabled:bg-gray-800 focus-visible:outline-gray-100`,
+			class: tw`not-data-disabled:bg-inherit not-data-disabled:text-gray-950 hover:not-data-disabled:bg-gray-200 focus-visible:outline-gray-950 dark:not-data-disabled:text-gray-100 dark:hover:not-data-disabled:bg-gray-800 dark:focus-visible:outline-gray-100`,
 		},
 
 		{
 			color: 'sand',
 			variant: 'contained',
-			class: tw`not-data-disabled:bg-sand-300 not-data-disabled:text-gray-950 hover:not-data-disabled:bg-sand-500 focus-visible:outline-sand-300`,
+			class: tw`not-data-disabled:bg-sand-700 not-data-disabled:text-gray-100 hover:not-data-disabled:bg-sand-500 focus-visible:outline-sand-700 dark:not-data-disabled:bg-sand-300 dark:not-data-disabled:text-gray-950 dark:hover:not-data-disabled:bg-sand-500 dark:focus-visible:outline-sand-300`,
 		},
 		{
 			color: 'sand',
 			variant: 'outlined',
-			class: tw`not-data-disabled:border-sand-300 not-data-disabled:bg-gray-950 not-data-disabled:text-sand-300 hover:not-data-disabled:bg-gray-800 focus-visible:outline-sand-300`,
+			class: tw`not-data-disabled:border-sand-700 not-data-disabled:bg-gray-100 not-data-disabled:text-sand-700 hover:not-data-disabled:bg-gray-200 focus-visible:outline-sand-700 dark:not-data-disabled:border-sand-300 dark:not-data-disabled:bg-gray-950 dark:not-data-disabled:text-sand-300 dark:hover:not-data-disabled:bg-gray-800 dark:focus-visible:outline-sand-300`,
 		},
 		{
 			color: 'sand',
 			variant: 'text',
-			class: tw`not-data-disabled:bg-inherit not-data-disabled:text-sand-300 hover:not-data-disabled:bg-gray-800 focus-visible:outline-sand-300`,
+			class: tw`not-data-disabled:bg-inherit not-data-disabled:text-sand-700 hover:not-data-disabled:bg-gray-200 focus-visible:outline-sand-700 dark:not-data-disabled:text-sand-300 dark:hover:not-data-disabled:bg-gray-800 dark:focus-visible:outline-sand-300`,
 		},
 	],
 };

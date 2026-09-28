@@ -23,8 +23,8 @@ const fontHeading = Arvo({
 });
 
 const RootLayout: React.FC<ParentCompProps> = ({ children }) => (
-	<html lang='en' className={`${fontBody.variable} ${fontHeading.variable}`}>
-		<body>
+	<html lang='en' className={`${fontBody.variable} ${fontHeading.variable} dark`}>
+		<body className='bg-gray-100 text-gray-950 dark:bg-gray-950 dark:text-gray-100'>
 			<TopNavbar />
 			<div className='flex min-h-screen flex-col'>
 				<div className='grow'>{children}</div>

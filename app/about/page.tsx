@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const About: React.FC = () => (
 	<main>
-		<div className='bg-ruby-950'>
+		<div className='bg-ruby-200 dark:bg-ruby-950'>
 			<section className='mx-auto my-0 w-full max-w-7xl px-3 py-5' id='about-me'>
-				<h2 className='mb-4 font-bold text-sand-300'>About Me</h2>
+				<h2 className='mb-4 font-bold text-sand-700 dark:text-sand-300'>About Me</h2>
 				<DescriptWithImg item={ABOUT_ME} imageLeft />
 			</section>
 		</div>

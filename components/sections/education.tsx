@@ -9,9 +9,9 @@ type EducationProps = {
 };
 
 const EducationSection: React.FC<EducationProps> = ({ education, internships }) => (
-	<div className='bg-ruby-950'>
+	<div className='bg-ruby-200 dark:bg-ruby-950'>
 		<section className='mx-auto my-0 w-full max-w-7xl px-3 py-5' id='education'>
-			<h2 className='mb-4 font-bold text-sand-300'>Education</h2>
+			<h2 className='mb-4 font-bold text-sand-700 dark:text-sand-300'>Education</h2>
 			{education.map(school => (
 				<Fragment key={school.schoolName}>
 					<div className='flex'>

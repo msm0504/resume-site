@@ -24,9 +24,11 @@ const formatNote = (note: string, showLargerFont: boolean) => (
 
 const Notes: React.FC<NotesProps> = ({ notes, showLargerFont = false }) =>
 	!notes.length ? null : notes.length === 1 ? (
-		<div className='my-3 rounded-sm bg-gray-950 p-4'>{formatNote(notes[0], showLargerFont)}</div>
+		<div className='my-3 rounded-sm bg-gray-100 p-4 dark:bg-gray-950'>
+			{formatNote(notes[0], showLargerFont)}
+		</div>
 	) : (
-		<div className='my-3 rounded-sm bg-gray-950 p-2'>
+		<div className='my-3 rounded-sm bg-gray-100 p-2 dark:bg-gray-950'>
 			<ul className='flex list-inside list-disc flex-col gap-1'>
 				{notes.map(note => (
 					<li key={note.substring(0, 10)}>{formatNote(note, showLargerFont)}</li>

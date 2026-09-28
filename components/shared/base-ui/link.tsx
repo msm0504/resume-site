@@ -7,8 +7,8 @@ import tw from '@/util/tailwind-template';
 const LINK_CVA_CONFIG = {
 	variants: {
 		color: {
-			gray: tw`not-data-disabled:text-gray-300 hover:not-data-disabled:text-gray-500 focus-visible:outline-gray-300`,
-			sand: tw`not-data-disabled:text-sand-300 hover:not-data-disabled:text-sand-500 focus-visible:outline-sand-300`,
+			gray: tw`not-data-disabled:text-gray-700 hover:not-data-disabled:text-gray-500 focus-visible:outline-gray-700 dark:not-data-disabled:text-gray-300 dark:focus-visible:outline-gray-300`,
+			sand: tw`not-data-disabled:text-sand-700 hover:not-data-disabled:text-sand-500 focus-visible:outline-sand-700 dark:not-data-disabled:text-sand-300 dark:focus-visible:outline-sand-300`,
 		},
 	},
 };

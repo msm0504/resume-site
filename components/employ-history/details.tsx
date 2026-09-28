@@ -34,11 +34,11 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 
 const formatRole = (role: Role) => (
 	<div>
-		<h6 className='font-semibold text-sand-300'>Responsiblities</h6>
+		<h6 className='font-semibold text-sand-700 dark:text-sand-300'>Responsiblities</h6>
 		<Notes notes={role.highlights} />
 		{role.techsUsed && (
 			<>
-				<h6 className='font-semibold text-sand-300'>Technologies Used</h6>
+				<h6 className='font-semibold text-sand-700 dark:text-sand-300'>Technologies Used</h6>
 				<TechsList technologies={role.techsUsed} />
 			</>
 		)}

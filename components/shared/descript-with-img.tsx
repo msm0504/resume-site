@@ -14,7 +14,9 @@ const DescriptWithImg: React.FC<DescriptWithImgProps> = ({ item, imageLeft = fal
 			<Notes notes={[item.description]} showLargerFont />
 			{item.techs && item.techs.length ? (
 				<>
-					<h6 className={`font-semibold text-sand-300 ${imageLeft ? 'text-right' : 'text-left'}`}>
+					<h6
+						className={`font-semibold text-sand-700 dark:text-sand-300 ${imageLeft ? 'text-right' : 'text-left'}`}
+					>
 						{item.techsHeading}
 					</h6>
 					<TechsList technologies={item.techs} align={imageLeft ? 'right' : 'left'} />

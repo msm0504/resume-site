@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const Projects: React.FC = () => (
 	<main>
-		<div className='bg-teal-950'>
+		<div className='bg-teal-200 dark:bg-teal-950'>
 			<section className='mx-auto my-0 w-full max-w-7xl px-3 py-5' id='projects'>
-				<h2 className='mb-4 font-bold text-sand-300'>Personal Projects</h2>
+				<h2 className='mb-4 font-bold text-sand-700 dark:text-sand-300'>Personal Projects</h2>
 				{PERSONAL_PROJECTS.map(project => (
 					<article key={project.name}>
 						<h3>{project.name}</h3>
