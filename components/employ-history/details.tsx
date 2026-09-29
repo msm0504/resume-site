@@ -29,7 +29,7 @@ const formatTitles = (titles: string | TitleDuration[]) =>
 			))}
 		</>
 	) : (
-		<p>{titles}</p>
+		<p className='text-lg'>{titles}</p>
 	);
 
 const formatRole = (role: Role) => (

@@ -10,7 +10,7 @@ import { WithId } from '@/types';
 export const metadata: Metadata = {
 	title: 'Mark Monday Portfolio',
 	description:
-		"Hi, my name is Mark Monday. I create technical solutions. I'm a software engineer specializing in React and Java Spring Boot. Currently, I'm a senior UI developer for Travelport.",
+		"Hi, my name is Mark Monday. I build web applications. I'm a software engineer specializing in React and Java Spring Boot. Currently, I'm a senior UI developer for Travelport.",
 };
 
 const generateItemIds = <T,>(items: T[]): WithId<T>[] =>

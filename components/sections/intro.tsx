@@ -6,7 +6,7 @@ const IntroSection: React.FC = () => (
 				Mark Monday.
 			</span>
 		</p>
-		<h2 className='text-7xl leading-[1.2]'>I create technical solutions.</h2>
+		<h2 className='text-7xl leading-[1.2]'>I build web applications.</h2>
 		<p className='text-lg'>{`I'm a software engineer specializing in React and Java Spring Boot.`}</p>
 		<p className='text-lg'>{`Currently, I'm a senior full-stack developer for BMI.`}</p>
 	</section>

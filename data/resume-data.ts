@@ -76,7 +76,10 @@ export const EMPLOYMENT_HISTORY: Employment[] = [
 			{
 				highlights: [
 					'Full-stack developer on a small Agile team transitioning legacy applications to a modern web architecture.',
-					'Lead developer of both React UI and Java Spring Boot API for an internal application to manage data concerning musical works, writers, producers, and royalty shares.',
+					'Lead developer of React UI and some Java Spring Boot APIs for an internal application to manage data concerning musical works, writers, producers, and royalty shares.',
+					'Contributed to React UI for an application to manage music recognition requests.',
+					'Wrote reusable library containing branded Material UI theme and common custom components.',
+					'Paired with a team member to write a Java library for building dynamic SQL search queries. ',
 				],
 				techsUsed: [
 					'ReactJS',
