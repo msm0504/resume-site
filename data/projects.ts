@@ -24,7 +24,7 @@ export const PERSONAL_PROJECTS: Project[] = [
 			},
 			{
 				description:
-					'The results from a given search can be saved and shared. Users that have logged in with a social media account can view their past saved results.',
+					'The results from a given search can be saved and shared. Users that have logged in can view their past saved results.',
 				imagePath: '/project-images/media-bubbles/saved-result.png',
 				imageAltText: 'Example of a Media Bubbles saved search result',
 				imageWidth: 630,
