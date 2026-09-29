@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import { Box, Container, Stack, Typography } from '@mui/material';
 import EmployHistory from '../employ-history';
 import Notes from '../shared/notes';
 import { Education, Employment, WithId } from '@/types';
@@ -10,38 +9,29 @@ type EducationProps = {
 };
 
 const EducationSection: React.FC<EducationProps> = ({ education, internships }) => (
-	<Box bgcolor='bg2.main'>
-		<Container
-			component='section'
-			id='education'
-			maxWidth='lg'
-			sx={{ marginY: 0, paddingX: 3, paddingY: 5 }}
-		>
-			<Typography component='h2' variant='h4' fontWeight='bold' color='info' marginBottom={4}>
-				Education
-			</Typography>
+	<div className='bg-ruby-200 dark:bg-ruby-950'>
+		<section className='mx-auto my-0 w-full max-w-7xl px-3 py-5' id='education'>
+			<h2 className='mb-4 font-bold text-sand-700 dark:text-sand-300'>Education</h2>
 			{education.map(school => (
 				<Fragment key={school.schoolName}>
-					<Stack direction='row'>
-						<Box flexGrow={1}>
-							<Typography variant='h5'>{school.schoolName}</Typography>
-							<Typography variant='h6'>
+					<div className='flex'>
+						<div className='grow'>
+							<h5>{school.schoolName}</h5>
+							<h6>
 								{school.city}, {school.state}
-							</Typography>
-						</Box>
-						<Typography>Graduated {school.gradDate}</Typography>
-					</Stack>
-					<Container maxWidth='md'>
+							</h6>
+						</div>
+						<p>Graduated {school.gradDate}</p>
+					</div>
+					<div className='mx-auto w-full max-w-4xl'>
 						<Notes notes={school.highlights} />
-					</Container>
+					</div>
 				</Fragment>
 			))}
-			<Typography component='h3' variant='h5' marginBottom={4}>
-				Internships
-			</Typography>
+			<h3 className='mb-4'>Internships</h3>
 			<EmployHistory history={internships} />
-		</Container>
-	</Box>
+		</section>
+	</div>
 );
 
 export default EducationSection;

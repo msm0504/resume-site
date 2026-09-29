@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Box, Stack, Typography } from '@mui/material';
 import Notes from './notes';
 import TechsList from './techs-list';
 import { DescriptionWithImage } from '@/types';
@@ -10,32 +9,29 @@ type DescriptWithImgProps = {
 };
 
 const DescriptWithImg: React.FC<DescriptWithImgProps> = ({ item, imageLeft = false }) => (
-	<Stack direction={{ xs: 'column', md: imageLeft ? 'row-reverse' : 'row' }}>
-		<Box marginBottom={4} paddingTop={{ md: 12 }} flexBasis='50%'>
+	<div className={`flex flex-col ${imageLeft ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+		<div className='mb-4 basis-1/2 md:pt-12'>
 			<Notes notes={[item.description]} showLargerFont />
 			{item.techs && item.techs.length ? (
 				<>
-					<Typography
-						variant='h6'
-						fontWeight='semibold'
-						color='info'
-						textAlign={imageLeft ? 'right' : 'left'}
+					<h6
+						className={`font-semibold text-sand-700 dark:text-sand-300 ${imageLeft ? 'text-right' : 'text-left'}`}
 					>
 						{item.techsHeading}
-					</Typography>
+					</h6>
 					<TechsList technologies={item.techs} align={imageLeft ? 'right' : 'left'} />
 				</>
 			) : null}
-		</Box>
-		<Box marginX='auto' textAlign='center' flexBasis='50%'>
+		</div>
+		<div className='mx-auto basis-1/2 text-center'>
 			<Image
 				src={item.imagePath}
 				alt={item.imageAltText}
 				width={item.imageWidth}
 				height={item.imageHeight}
 			/>
-		</Box>
-	</Stack>
+		</div>
+	</div>
 );
 
 export default DescriptWithImg;

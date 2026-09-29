@@ -1,5 +1,4 @@
-import { Link as MuiLink, Paper, Stack, Typography } from '@mui/material';
-import Link from 'next/link';
+import { Link } from './base-ui';
 import ReactMarkdown from 'react-markdown';
 
 type NotesProps = {
@@ -11,17 +10,12 @@ const formatNote = (note: string, showLargerFont: boolean) => (
 	<ReactMarkdown
 		components={{
 			p: ({ children }) =>
-				showLargerFont ? <Typography variant='body2'>{children}</Typography> : <>{children}</>,
-			a: ({ href, children }) =>
-				href?.startsWith('/') ? (
-					<MuiLink component={Link} href={href}>
-						{children}
-					</MuiLink>
-				) : (
-					<MuiLink href={href} target='_blank' rel='noreferrer'>
-						{children}
-					</MuiLink>
-				),
+				showLargerFont ? <p className='text-lg'>{children}</p> : <>{children}</>,
+			a: ({ href, children }) => (
+				<Link color='sand' href={href}>
+					{children}
+				</Link>
+			),
 		}}
 	>
 		{note}
@@ -30,15 +24,17 @@ const formatNote = (note: string, showLargerFont: boolean) => (
 
 const Notes: React.FC<NotesProps> = ({ notes, showLargerFont = false }) =>
 	!notes.length ? null : notes.length === 1 ? (
-		<Paper sx={{ marginY: 3, padding: 4 }}>{formatNote(notes[0], showLargerFont)}</Paper>
+		<div className='my-3 rounded-sm bg-gray-100 p-4 dark:bg-gray-950'>
+			{formatNote(notes[0], showLargerFont)}
+		</div>
 	) : (
-		<Paper sx={{ marginY: 3 }}>
-			<Stack component='ul' spacing={1}>
+		<div className='my-3 rounded-sm bg-gray-100 p-2 dark:bg-gray-950'>
+			<ul className='flex list-inside list-disc flex-col gap-1'>
 				{notes.map(note => (
 					<li key={note.substring(0, 10)}>{formatNote(note, showLargerFont)}</li>
 				))}
-			</Stack>
-		</Paper>
+			</ul>
+		</div>
 	);
 
 export default Notes;

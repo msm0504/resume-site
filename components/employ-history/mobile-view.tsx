@@ -1,9 +1,6 @@
-'use client';
-import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { EmployHistoryViewProps } from './';
 import EmployHistoryDetails from './details';
+import { Accordion } from '../shared/base-ui';
 
 type EmployHistoryMobileProps = EmployHistoryViewProps;
 
@@ -13,26 +10,21 @@ const EmployHistoryMobile: React.FC<EmployHistoryMobileProps> = ({
 	fnOnSelect,
 	fnFormatLabel,
 }) => (
-	<div>
+	<Accordion.Root
+		value={[selected]}
+		onValueChange={value => fnOnSelect(value.length ? value[0] : '')}
+	>
 		{history.map(entry => (
-			<Accordion
-				key={entry.id}
-				expanded={selected === entry.id}
-				onChange={(_event, isExpanded) => fnOnSelect(isExpanded ? entry.id : '')}
-			>
-				<AccordionSummary
-					expandIcon={<FontAwesomeIcon icon={faChevronDown} />}
-					aria-controls={`panel${entry.id}-content`}
-					id={`panel${entry.id}-header`}
-				>
-					{fnFormatLabel(entry)}
-				</AccordionSummary>
-				<AccordionDetails>
+			<Accordion.Item key={entry.id} value={entry.id}>
+				<Accordion.Header>
+					<Accordion.Trigger>{fnFormatLabel(entry)}</Accordion.Trigger>
+				</Accordion.Header>
+				<Accordion.Panel>
 					<EmployHistoryDetails employment={entry} />
-				</AccordionDetails>
-			</Accordion>
+				</Accordion.Panel>
+			</Accordion.Item>
 		))}
-	</div>
+	</Accordion.Root>
 );
 
 export default EmployHistoryMobile;

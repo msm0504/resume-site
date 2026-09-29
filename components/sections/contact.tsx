@@ -1,27 +1,25 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
+import { Button } from '../shared/base-ui';
 import { EMAIL_MAILTO } from '@/constants';
 
 const ContactSection: React.FC = () => (
-	<Box bgcolor='bg1.main'>
-		<Box
-			component='section'
-			id='contact'
-			maxWidth={400}
-			sx={{ marginX: 'auto', marginY: 0, paddingX: 3, paddingY: 12 }}
-		>
-			<Stack alignItems='center' textAlign='center'>
-				<Typography component='h2' variant='h4' fontWeight='bold' color='info'>
-					Contact me
-				</Typography>
-				<Typography fontSize='1.5rem'>{`I'm interested in hearing about new senior software engineering roles.`}</Typography>
-				<Box marginTop={10}>
-					<Button href={EMAIL_MAILTO} variant='contained' color='info' size='large'>
+	<div className='bg-teal-200 dark:bg-teal-950'>
+		<section className='mx-auto my-0 max-w-[400] px-3 py-12' id='contact'>
+			<div className='flex flex-col items-center text-center'>
+				<h2 className='font-bold text-sand-700 dark:text-sand-300'>Contact me</h2>
+				<p className='text-2xl'>{`I'm interested in hearing about new senior software engineering roles.`}</p>
+				<div className='mt-10'>
+					<Button
+						className='text-xl font-semibold'
+						href={EMAIL_MAILTO}
+						variant='contained'
+						color='sand'
+					>
 						Email me
 					</Button>
-				</Box>
-			</Stack>
-		</Box>
-	</Box>
+				</div>
+			</div>
+		</section>
+	</div>
 );
 
 export default ContactSection;
